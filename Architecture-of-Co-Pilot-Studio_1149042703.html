@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : Architecture of Co-Pilot Studio</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="S24-INDEX_1249640453.html">S24-INDEX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Microsoft-Co-pilot-Studio_1267302404.html">Microsoft Co-pilot Studio</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : Architecture of Co-Pilot Studio
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Aerish Gaba (Unlicensed)</span>, last modified on Jun 03, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This document is created to record the architecture of the copilot studio sourced from <a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/" rel="nofollow">https://learn.microsoft.com/en-us/microsoft-copilot-studio/</a> .</p><p>The architecture solely depends on the feature of the copilot studio called <strong>Plugins.</strong></p><ul><li><p><strong><u>Plugins</u></strong> - A reusable piece of code to perform a specific/designated task of a co-pilot. </p></li></ul><p style="margin-left: 30.0px;">for example - To send a pre- generated email after approval, Perform action by querying data in Dataverse.</p><ul><li><p> Created in Plugin Authoring Section where user can create/edit plugins using a simplified GUI.</p></li><li><p>Once created the plugins can be used in many co-pilots to the authorized users as they are stored in a registry.</p></li></ul><p> </p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240603-182459.png" width="760" loading="lazy" src="attachments/1149042703/1149009968.png?width=760" data-image-src="attachments/1149042703/1149009968.png" data-height="549" data-width="1233" data-unresolved-comment-count="0" data-linked-resource-id="1149009968" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240603-182459.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1149042703" data-linked-resource-container-version="2" data-media-id="269d9328-35b4-4896-9553-c91e9189c92a" data-media-type="file"></span><p> Above is the workflow of how the plugin cycle.</p><p /><p><strong>Creator Layer</strong> - Layer where user create/edit the plugin.</p><p>There are 4 types of plugins a user can create :-</p><ol start="1"><li><p>Prompt Plugin - Plugin where the copilot answers the user's queries and respond using Natural Language Processing (NLP) and Natural Linguistic Generation (NLG).</p></li><li><p>Flow - Plugin where copilot executes multi step workflows using Power Automate.</p></li><li><p>Connector - Plugin where copilot connects to external systems or data sources like GitHub, Zendesk, Salesforce or SAP using power platform connectors which makes it possible to retrieve or update data in real-time.  <a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/copilot-plugins-overview" rel="nofollow">https://learn.microsoft.com/en-us/microsoft-copilot-studio/copilot-plugins-overview</a> </p></li><li><p>Topic - Where copilot answers a specific user utterance or queries like store opening hours.</p></li></ol><p /><p><strong>Plugin Registry</strong> - Stores/Manages plugin metadata and executes information.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="Screenshot 2024-06-03 102638.png" width="760" loading="lazy" src="attachments/1149042703/1149534266.png?width=760" data-image-src="attachments/1149042703/1149534266.png" data-height="831" data-width="1355" data-unresolved-comment-count="0" data-linked-resource-id="1149534266" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot 2024-06-03 102638.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1149042703" data-linked-resource-container-version="2" data-media-id="8e3b0c24-ff6a-4bd6-9d14-99456e7df71f" data-media-type="file"></span><p>Here Admin layer uses Microsoft admin centre to choose integrated apps available for tenants.</p><p>it allows, deploy or block the apps for specific or all users.</p><p /><p /><p><strong>Bot Framework </strong> :- Key Concepts for composer/user.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240603-185426.png" width="1200" loading="lazy" src="attachments/1149042703/1148780571.png?width=1200" data-image-src="attachments/1149042703/1148780571.png" data-height="1015" data-width="2472" data-unresolved-comment-count="0" data-linked-resource-id="1148780571" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240603-185426.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1149042703" data-linked-resource-container-version="2" data-media-id="eb1fde2c-2432-4302-8a81-671ba2afc5bf" data-media-type="file"></span><ul><li><p><strong><u>Fallback Option</u></strong> - In addition to generative answers, we can use AI general knowledge to allow your copilot to find and present information in response to your customer's questions. General knowledge saves you from needing to manually author multiple topics, which might not even address all your customer's questions.  </p></li></ul><p>This may be due to following reasons :-</p><ol start="1"><li><p><a class="external-link" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/generative-answers-sharepoint-no-response#search-results-are-missing" rel="nofollow">Search results are missing</a></p></li><li><p><a class="external-link" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/generative-answers-sharepoint-no-response#missing-user-permissions" rel="nofollow">The user accessing the copilot doesn't have sufficient permissions on the data source</a></p></li><li><p><a class="external-link" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/generative-answers-sharepoint-no-response#file-size-limitation" rel="nofollow">Files are larger than the 3 MB size limitation</a></p></li><li><p><a class="external-link" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/generative-answers-sharepoint-no-response#the-app-registration-or-copilot-are-misconfigured" rel="nofollow">The app registration or the copilot are misconfigured</a></p></li><li><p><a class="external-link" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/generative-answers-sharepoint-no-response#content-blocked-by-content-moderation" rel="nofollow">Content blocked by content moderation</a></p></li></ol><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1149042703/1149108257.png">image-20240603-182450.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1149042703/1149009968.png">image-20240603-182459.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1149042703/1149534266.png">Screenshot 2024-06-03 102638.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1149042703/1148780571.png">image-20240603-185426.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:25</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

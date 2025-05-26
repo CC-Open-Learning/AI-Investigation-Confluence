@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : Proposed Data Extraction Process</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="S24-INDEX_1249640453.html">S24-INDEX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Team---Research_1267761154.html">Data Team - Research</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : Proposed Data Extraction Process
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Arsh Chauhan</span>, last modified on Jun 21, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h3 id="ProposedDataExtractionProcess-ToolsandScripts">Tools and Scripts</h3><h4 id="ProposedDataExtractionProcess-Tools">Tools</h4><ul><li><p><strong>Programming Languages</strong>: Python (recommended for its useful libraries and ease of use)</p></li><li><p><strong>API Client Libraries</strong>: <code>requests</code> library for making HTTP requests</p></li><li><p><strong>Data Storage</strong>: Till now plan is to use the Azure services for the data storage </p></li></ul><h4 id="ProposedDataExtractionProcess-Scripts">Scripts</h4><ol start="1"><li><p><strong>Setup Script</strong>: Script to initialize the environment and install necessary dependencies.</p></li><li><p><strong>Authentication Script</strong>: Script to handle OAuth 2.0 authentication(for Brightspace API) and token management.</p></li><li><p><strong>Data Extraction Script</strong>: Script to call Brightspace API endpoints and extract data.</p></li><li><p><strong>Data Processing Script</strong>: Script to process and store the extracted data.</p></li></ol><p /><h3 id="ProposedDataExtractionProcess-DataSecurityMeasures">Data Security Measures</h3><h4 id="ProposedDataExtractionProcess-AuthenticationandAuthorization">Authentication and Authorization</h4><ul><li><p><strong>OAuth 2.0</strong>: Ensure secure authentication using OAuth 2.0.</p></li><li><p><strong>Token Management</strong>: Store access tokens securely and handle token refresh logic.</p></li></ul><h4 id="ProposedDataExtractionProcess-DataEncryption">Data Encryption</h4><ul><li><p><strong>In-Transit</strong>: Use HTTPS to encrypt data during transmission.</p></li><li><p><strong>At-Rest</strong>: Encrypt sensitive data stored in databases or cloud storage.</p></li></ul><h4 id="ProposedDataExtractionProcess-AccessControls">Access Controls</h4><ul><li><p><strong>Permissions</strong>: Restrict API access based on user roles and permissions.</p></li><li><p><strong>Environment Variables</strong>: Store sensitive information (e.g., Client ID, Client Secret) in environment variables.</p></li></ul><h4 id="ProposedDataExtractionProcess-LoggingandMonitoring">Logging and Monitoring</h4><ul><li><p><strong>Logs</strong>: Maintain logs of data extraction activities for auditing and troubleshooting.</p></li><li><p><strong>Alerts</strong>: Set up alerts for unusual activities or errors.</p></li></ul><p><br/><br/><br/><strong><u>(With Help of AIs like ChatGPT, Gemini and Copilot i got the mentioned below content- I was not able to test it because of lack of access tokens. So I am not sure if the mentioned code is right or wrong)</u></strong></p><h2 id="ProposedDataExtractionProcess-DetailedStepsforDataExtraction"><br/><strong>Detailed Steps for Data Extraction</strong></h2><h4 id="ProposedDataExtractionProcess-Step1:SetupEnvironment">Step 1: Setup Environment</h4><ol start="1"><li><p><strong>Install Dependencies</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">pip install requests
+pip install psycopg2-binary # For PostgreSQL</pre>
+</div></div></li><li><p><strong>Initialize Environment Variables</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">export BRIGHTSPACE_CLIENT_ID=&#39;your-client-id&#39;
+export BRIGHTSPACE_CLIENT_SECRET=&#39;your-client-secret&#39;
+export BRIGHTSPACE_REDIRECT_URI=&#39;your-redirect-uri&#39;
+export BRIGHTSPACE_API_URL=&#39;&lt;https://your-brightspace-instance/api/&gt;&#39;</pre>
+</div></div></li></ol><h4 id="ProposedDataExtractionProcess-Step2:Authentication">Step 2: Authentication</h4><ol start="1"><li><p><strong>Get Authorization Code</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">import requests
+import os
+
+client_id = os.getenv(&#39;BRIGHTSPACE_CLIENT_ID&#39;)
+redirect_uri = os.getenv(&#39;BRIGHTSPACE_REDIRECT_URI&#39;)
+auth_url = f&#39;&lt;https://your-brightspace-instance/auth/oauth2/auth?response_type=code&amp;client_id={client_id}&amp;redirect_uri={redirect_uri}&gt;&#39;
+
+print(f&#39;Visit this URL to get the authorization code: {auth_url}&#39;)</pre>
+</div></div></li><li><p><strong>Exchange Authorization Code for Access Token</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">code = &#39;authorization_code_from_previous_step&#39;
+client_secret = os.getenv(&#39;BRIGHTSPACE_CLIENT_SECRET&#39;)
+
+token_url = &#39;&lt;https://your-brightspace-instance/auth/oauth2/token&gt;&#39;
+response = requests.post(token_url, data={
+    &#39;grant_type&#39;: &#39;authorization_code&#39;,
+    &#39;code&#39;: code,
+    &#39;redirect_uri&#39;: redirect_uri,
+    &#39;client_id&#39;: client_id,
+    &#39;client_secret&#39;: client_secret
+})
+tokens = response.json()
+access_token = tokens[&#39;access_token&#39;]
+refresh_token = tokens[&#39;refresh_token&#39;]</pre>
+</div></div></li><li><p><strong>Refresh Access Token</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">def refresh_access_token(refresh_token):
+    response = requests.post(token_url, data={
+        &#39;grant_type&#39;: &#39;refresh_token&#39;,
+        &#39;refresh_token&#39;: refresh_token,
+        &#39;client_id&#39;: client_id,
+        &#39;client_secret&#39;: client_secret
+    })
+    return response.json()
+
+tokens = refresh_access_token(refresh_token)
+access_token = tokens[&#39;access_token&#39;]</pre>
+</div></div></li></ol><h4 id="ProposedDataExtractionProcess-Step3:DataExtraction">Step 3: Data Extraction</h4><ol start="1"><li><p><strong>Define API Endpoints</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">api_url = os.getenv(&#39;BRIGHTSPACE_API_URL&#39;)
+courses_endpoint = f&#39;{api_url}/d2l/api/lp/1.27/courses/&#39;</pre>
+</div></div></li><li><p><strong>Extract Data</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">headers = {&#39;Authorization&#39;: f&#39;Bearer {access_token}&#39;}
+response = requests.get(courses_endpoint, headers=headers)
+courses = response.json()</pre>
+</div></div></li><li><p><strong>Process and Store Data</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">import psycopg2
+
+conn = psycopg2.connect(
+    dbname=&#39;your_db_name&#39;,
+    user=&#39;your_db_user&#39;,
+    password=&#39;your_db_password&#39;,
+    host=&#39;your_db_host&#39;,
+    port=&#39;your_db_port&#39;
+)
+cur = conn.cursor()
+
+for course in courses[&#39;Items&#39;]:
+    cur.execute(&quot;&quot;&quot;
+        INSERT INTO courses (id, name, code) VALUES (%s, %s, %s)
+        ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, code = EXCLUDED.code
+    &quot;&quot;&quot;, (course[&#39;OrgUnit&#39;][&#39;Id&#39;], course[&#39;Name&#39;], course[&#39;Code&#39;]))
+
+conn.commit()
+cur.close()
+conn.close()</pre>
+</div></div></li></ol>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:25</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

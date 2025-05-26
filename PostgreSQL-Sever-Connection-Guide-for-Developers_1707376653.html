@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : PostgreSQL Sever Connection Guide for Developers</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="W25-INDEX_1551106050.html">W25-INDEX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Database_1707114500.html">Database</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : PostgreSQL Sever Connection Guide for Developers
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Eunie</span>, last modified on Mar 21, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Access to the database is limited to the Conestoga College Wi-Fi network.</p><p>If you require access from an external IP address, please submit a request.</p></div></div><p /><h3 id="PostgreSQLSeverConnectionGuideforDevelopers-PostgreSQLConnectionGuide">PostgreSQL Connection Guide</h3><p>This guide uses pgAdmin 4 to connect to the PostgreSQL database. However, feel free to use tools like DBeaver, terminal (psql), or any tool you’re comfortable with.</p><p /><h3 id="PostgreSQLSeverConnectionGuideforDevelopers-ConnectingviapgAdmin4">Connecting via pgAdmin 4</h3><h4 id="PostgreSQLSeverConnectionGuideforDevelopers-1.Installation">1. Installation</h4><ul><li><p>Download and install pgAdmin from the <a class="external-link" href="https://www.pgadmin.org/download/" rel="nofollow">official pgAdmin website</a>.</p></li></ul><h4 id="PostgreSQLSeverConnectionGuideforDevelopers-2.ConnectionSteps">2. Connection Steps</h4><ul><li><p>Launch pgAdmin and either</p><ul><li><p>Right-click on “Servers” in the left sidebar → select “Create” → “Server”</p></li><li><p>(or Click “Add New Server” from the Quick Link section.)<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="636" loading="lazy" src="attachments/1707376653/1707212817.png?width=636" data-image-src="attachments/1707376653/1707212817.png" data-height="1124" data-width="1840" data-unresolved-comment-count="0" data-linked-resource-id="1707212817" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot 2025-03-21 at 11.14.21 AM.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1707376653" data-linked-resource-container-version="4" data-media-id="6b16c5bd-a880-4288-9b9c-0a10541c5160" data-media-type="file"></span><p><br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="636" loading="lazy" src="attachments/1707376653/1707081740.png?width=636" data-image-src="attachments/1707376653/1707081740.png" data-height="1124" data-width="1840" data-unresolved-comment-count="0" data-linked-resource-id="1707081740" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot 2025-03-21 at 10.53.42 AM.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1707376653" data-linked-resource-container-version="4" data-media-id="ee134a57-5a58-496e-8aaa-49e503a0a7fc" data-media-type="file"></span></li></ul></li><li><p>Under the [General] tab</p><ul><li><p>Name: Enter a display name (e.g., CVRI-AI-Server).<br/>            </p><p>  </p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="617" loading="lazy" src="attachments/1707376653/1707737089.png?width=617" data-image-src="attachments/1707376653/1707737089.png" data-height="552" data-width="705" data-unresolved-comment-count="0" data-linked-resource-id="1707737089" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot 2025-03-21 at 10.55.08 AM.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1707376653" data-linked-resource-container-version="4" data-media-id="07ad985d-cf3e-4430-a8a4-c6115e290b7e" data-media-type="file"></span><p><br/><br/></p></li></ul></li><li><p>Switch to the [Connection] tab and enter the following:<br/></p></li></ul><div class="table-wrap"><table data-table-width="642" data-layout="center" data-local-id="3212ae8a-6c35-4a47-80ce-d642aaa97de7" class="confluenceTable"><colgroup><col style="width: 642.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p>Host name/address: <a class="external-link" href="http://cnerg-data.canadacentral.cloudapp.azure.com" rel="nofollow">cnerg-data.canadacentral.cloudapp.azure.com</a></p><p>Port: 8086</p><p>Maintenance database: cvri-course-db</p><p>Username: aiadmin</p><p>Password: (The password will be shared separately.)</p></th></tr></tbody></table></div><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="640" loading="lazy" src="attachments/1707376653/1707671556.png?width=640" data-image-src="attachments/1707376653/1707671556.png" data-height="552" data-width="700" data-unresolved-comment-count="0" data-linked-resource-id="1707671556" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot 2025-03-21 at 10.56.12 AM.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1707376653" data-linked-resource-container-version="4" data-media-id="ab044178-7f60-44c5-afc6-882198342524" data-media-type="file"></span><ul><li><p>Click [Save] to complete the connection.<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="688" loading="lazy" src="attachments/1707376653/1707343877.png?width=688" data-image-src="attachments/1707376653/1707343877.png" data-height="1124" data-width="1840" data-unresolved-comment-count="0" data-linked-resource-id="1707343877" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot 2025-03-21 at 11.10.08 AM.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1707376653" data-linked-resource-container-version="4" data-media-id="91e5c42b-052d-4bfc-8616-a61c09c7b268" data-media-type="file"></span></li></ul><p /><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1707376653/1707081740.png">Screenshot 2025-03-21 at 10.53.42 AM.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1707376653/1707737089.png">Screenshot 2025-03-21 at 10.55.08 AM.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1707376653/1707671556.png">Screenshot 2025-03-21 at 10.56.12 AM.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1707376653/1707343877.png">Screenshot 2025-03-21 at 11.10.08 AM.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1707376653/1707212817.png">Screenshot 2025-03-21 at 11.14.21 AM.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:28</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

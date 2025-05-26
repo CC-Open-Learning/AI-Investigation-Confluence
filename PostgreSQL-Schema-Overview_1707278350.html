@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : PostgreSQL Schema Overview</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="W25-INDEX_1551106050.html">W25-INDEX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Database_1707114500.html">Database</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : PostgreSQL Schema Overview
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Eunie</span>, last modified on Apr 01, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="PostgreSQLSchemaOverview-1.RequirementAnalysis"><strong>1. Requirement Analysis</strong></h2><h3 id="PostgreSQLSchemaOverview-Overview"><strong>Overview</strong></h3><p>We have structured the database to store and manage key components of the course, including:</p><ul><li><p>Course Content (Lectures, Presentations, etc.)</p></li><li><p>Assignments</p></li><li><p>Quizzes</p></li><li><p>Rubrics (Evaluation Criteria)</p></li><li><p>Schedules (Start/End Dates)</p></li></ul><h3 id="PostgreSQLSchemaOverview-DataRelationships"><strong>Data Relationships</strong></h3><p>The relationships between the entities are as follows:</p><ul><li><p>Course ↔ Course Contents (1:N)</p></li><li><p>Course ↔ Assignments (1:N)</p></li><li><p>Course ↔ Quizzes (1:N)</p></li><li><p>Course Contents ↔ Assignments (1:1)</p></li><li><p>Course Contents ↔ Quizzes (1:1)</p></li><li><p>Rubrics ↔ Assignments (1:1)</p></li><li><p>Rubrics ↔ Quizzes (1:1)</p></li></ul><ul class="decision-list"><li><strong>Student</strong>: Includes student ID and program (major) ID<br/><strong>Program</strong>: Includes program ID and a list of course IDs associated with the program<br/>Currently, we do not have this data available, and due to privacy concerns, it may not be feasible to store personal information at this stage.<br/><strong>This part will require further discussion.</strong></li></ul><h3 id="PostgreSQLSchemaOverview-FrequentlyUsedQueries"><strong>Frequently Used Queries</strong></h3><ul><li><p>Retrieve content for a specific unit within a course lecture</p></li><li><p>Fetch all assignments related to a specific course</p></li><li><p>Retrieve the rubric associated with a particular assignment</p></li></ul><hr/><h2 id="PostgreSQLSchemaOverview-2.LogicalDesign"><strong>2. Logical Design</strong></h2><h3 id="PostgreSQLSchemaOverview-TablesandRelationships"><strong>Tables and Relationships</strong></h3><p>The following tables have been designed to meet the project requirements:</p><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="0932db72-5bae-415f-95bb-a078476eb63c" class="confluenceTable"><colgroup><col style="width: 190.0px;"/><col style="width: 173.0px;"/><col style="width: 223.0px;"/><col style="width: 172.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p>Table</p></th><th class="confluenceTh"><p>Description</p></th><th class="confluenceTh"><p>Key Columns</p></th><th class="confluenceTh"><p>Relationship</p></th></tr><tr><td class="confluenceTd"><p><strong>courses</strong> </p></td><td class="confluenceTd"><p>Stores course information </p></td><td class="confluenceTd"><p>course_id (PK), </p><p>title </p></td><td class="confluenceTd"><p>1:N with course_contents, 1:N with assignments &amp; quizzes </p></td></tr><tr><td class="confluenceTd"><p><strong>course_contents</strong> </p></td><td class="confluenceTd"><p>Stores lecture details </p></td><td class="confluenceTd"><p>course_contents_id (PK),</p><p>course_id (FK),</p><p>unit, </p><p>topic, </p><p>lesson_number,</p><p>lecsson_title, </p><p>course_resources,</p><p>citations,</p><p>topic_title,</p><p>source,</p><p>chapter, </p><p>content_raw_text</p><p>content_vector</p><p>start_date, </p><p>end_date, </p><p>content_type</p></td><td class="confluenceTd"><p>N:1 with courses </p></td></tr><tr><td class="confluenceTd"><p><strong>assignments</strong> </p></td><td class="confluenceTd"><p>Stores assignment information </p></td><td class="confluenceTd"><p>assignment_id (PK),</p><p>course_id (FK), </p><p>title,</p><p>instructions</p><p>instructions_vector</p><p>due_date </p></td><td class="confluenceTd"><p>1:N with courses, 1:1 with rubrics </p></td></tr><tr><td class="confluenceTd"><p><strong>quizzes</strong> </p></td><td class="confluenceTd"><p>Stores quiz details </p></td><td class="confluenceTd"><p>quiz_id (PK), </p><p>course_id (FK), </p><p>title, </p><p>instructions,</p><p>instructions_vector</p><p>date_start </p></td><td class="confluenceTd"><p>1:N with courses , 1:1 with rubrics</p></td></tr><tr><td class="confluenceTd"><p><strong>rubrics</strong> </p></td><td class="confluenceTd"><p>Stores evaluation criteria </p></td><td class="confluenceTd"><p>rubric_id (PK),</p><p>evaluation_target_id (FK),</p><p>title,</p><p>level,</p><p>score,</p><p>description</p></td><td class="confluenceTd"><p>1:1 with assignments or quizzes </p></td></tr></tbody></table></div><hr/><h2 id="PostgreSQLSchemaOverview-3️⃣ERD(EntityRelationshipDiagram)"><strong>3️⃣ ERD (Entity Relationship Diagram)</strong></h2><p>Below is the ERD for the visualization of table relationships.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250325-132357.png" width="760" loading="lazy" src="attachments/1707278350/1712881676.png?width=760" data-image-src="attachments/1707278350/1712881676.png" data-height="380" data-width="1150" data-unresolved-comment-count="0" data-linked-resource-id="1712881676" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250325-132357.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1707278350" data-linked-resource-container-version="9" data-media-id="bf9b1422-1232-4993-a007-e228b0fc40a2" data-media-type="file"></span><hr/><h2 id="PostgreSQLSchemaOverview-NextSteps"><strong>Next Steps</strong></h2><ol start="1"><li><p>Review &amp; Feedback → Validate the logical design</p></li><li><p>Refinements (if needed) based on review</p></li><li><p>Proceed to Physical Design → Implement the schema in PostgreSQL</p></li></ol><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1707278350/1708228617.png">image-20250321-192504.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1707278350/1708294154.png">image-20250321-194400.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1707278350/1708032006.png">image-20250321-195245.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1707278350/1712881676.png">image-20250325-132357.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:28</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

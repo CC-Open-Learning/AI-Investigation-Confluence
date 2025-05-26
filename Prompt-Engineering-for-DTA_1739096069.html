@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : Prompt Engineering for DTA</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="W25-INDEX_1551106050.html">W25-INDEX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tech-Research_1583087617.html">Tech Research</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : Prompt Engineering for DTA
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jongeon</span>, last modified on Apr 08, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><style>[data-colorid=tupi0m4ai2]{color:#ff5630} html[data-color-mode=dark] [data-colorid=tupi0m4ai2]{color:#cf2600}</style>The methodological discussion on prompt engineering will be replaced with the link below</p><p><a data-card-appearance="inline" href="https://varlab-dev.atlassian.net/wiki/x/BQBHYQ" rel="nofollow">https://varlab-dev.atlassian.net/wiki/x/BQBHYQ</a> </p><p><a data-card-appearance="inline" href="https://varlab-dev.atlassian.net/wiki/x/A4BOYQ" rel="nofollow">https://varlab-dev.atlassian.net/wiki/x/A4BOYQ</a> </p><p /><p><strong>Prompt Engineering</strong> is one of the most essential techniques in development using Large Language Models (LLMs). Designing prompts that guide the model in generating the expected responses and delivering more accurate results plays a critical role in shaping LLM-based applications' user experience (UX).</p><p>Through prompt engineering, developers can exert more precise control over the model&rsquo;s output, enabling flexible responses to various user needs. This methodology ultimately enhances both the reliability and the usability of applications.</p><p /><h2 id="PromptEngineeringforDTA-UseofPromptEngineeringinDTADevelopment">Use of Prompt Engineering in DTA Development</h2><p>In the development of the <strong>Digital Teaching Assistant (DTA)</strong>, two key types of prompt engineering were applied, each serving a specific purpose:</p><h3 id="PromptEngineeringforDTA-1.Promptsforvalidatingcorrectanswers">1. Prompts for validating correct answers</h3><p>This prompt is designed to strictly evaluate whether a user's answer is functionally or conceptually correct, depending on the type of question.</p><p style="margin-left: 30.0px;"><strong>Key characteristics:</strong></p><ul><li><p>Binary evaluation: The assistant only returns <code>'true'</code> or <code>'false'</code>.</p></li><li><p>Supports two question types:</p><ul><li><p>Programming questions:</p><ul><li><p>Allows for variation in implementation (different syntax, loop types, etc.)</p></li><li><p>Focuses on functional correctness and behavior, not exact code match.</p></li><li><p>Accepts minor formatting or syntax differences if the output is correct.</p></li></ul></li><li><p>General (conceptual) questions:</p><ul><li><p>Evaluates whether the core meaning of the user&rsquo;s answer aligns with the expected answer.</p></li><li><p>Accepts rephrased responses as long as they contain the correct idea or fact.</p></li></ul></li></ul></li></ul><p>The AI is explicitly instructed not to generate questions, alternative answers, or feedback, and to act only as a strict correctness checker.</p><h3 id="PromptEngineeringforDTA-2.Promptsforprovidinghints">2. Prompts for providing hints</h3><p>This prompt helps the AI assistant generate non-revealing, encouraging hints to guide users toward the correct answer.</p><p style="margin-left: 30.0px;"><strong>Key characteristics:</strong></p><ul><li><p>The assistant acts like a kind, supportive guide.</p></li><li><p>Considers:</p><ul><li><p>The current answer</p></li><li><p>The previous answers</p></li><li><p>The number of attempts</p></li></ul></li><li><p>Hints:</p><ul><li><p>Should encourage logical reasoning and progress.</p></li><li><p>Must not reveal the correct answer.</p></li><li><p>It should be simple and informative, gently nudging the user in the right direction.</p></li></ul></li><li><p>If the user has made 5 or more attempts, the assistant provides a slightly more specific hint to help them get unstuck, without disclosing the solution.</p></li></ul><p>This prompt ensures that the assistant provides a scaffolded learning experience, supporting the user&rsquo;s independent problem-solving.</p><p /><h2 id="PromptEngineeringforDTA-PotentialIssues"><span data-colorid="tupi0m4ai2">Potential Issues</span></h2><ol start="1"><li><p><strong>LLM Model Selection and Service Changes</strong></p><ol start="1"><li><p>Since S24, we have tested various LLM models and selected the Mistral model(<code>mixtral-8x7b-32768</code>) that best suited our system.</p></li><li><p>However, in mid-March 2025, the LLM service we were using was discontinued. We are currently using the free version of Gemma(<code>gemma2-9b-it</code>), but we must always keep in mind that the service could be terminated at any time.</p></li></ol></li><li><p><strong>Differences in Prompt Engineering Results</strong></p><ol start="1"><li><p>The results of prompt engineering vary depending on the LLM model. After testing multiple models using the same prompt, some models provided concise responses, while others output lengthy and detailed explanations.</p></li><li><p>Therefore, prompt engineering should be positioned as the final development process after selecting the LLM model, and optimization should be done according to the characteristics of the model.</p></li></ol></li><li><p><strong>Model Accuracy Issues</strong></p><ol start="1"><li><p>In the <code>prompt_evaluation</code>, the user&rsquo;s answers are evaluated. However, due to model changes or ambiguous responses, errors can occur. In the case of coding problems, functional accuracy is evaluated, but there may be a lack of understanding regarding specific implementation methods. Therefore, updates must be made immediately when any issues are discovered.</p></li></ol></li></ol><p /><p>To conclude this post, I will introduce a few articles that would be helpful to read before starting prompt engineering development.</p><p><a class="external-link" data-card-appearance="inline" href="https://www.oreilly.com/library/view/prompt-engineering-for/9781098153427/ch01.html" rel="nofollow">https://www.oreilly.com/library/view/prompt-engineering-for/9781098153427/ch01.html</a> </p><p><a class="external-link" data-card-appearance="inline" href="https://www.prompthub.us/blog/prompt-engineering-principles-for-2024" rel="nofollow">https://www.prompthub.us/blog/prompt-engineering-principles-for-2024</a> </p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:27</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

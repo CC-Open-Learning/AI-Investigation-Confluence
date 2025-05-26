@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : LangChain</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="S24-INDEX_1249640453.html">S24-INDEX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tech-Stack_1178992716.html">Tech Stack</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : LangChain
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jongeon</span>, last modified by <span class='editor'> Paras Rupani</span> on Sept 16, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>LangChain is a framework for developing applications that leverage language models. It goes beyond simply calling language model via an API, supporting the development of more powerful and differentiated applications through various functionalities and combinations.</p><h2 id="LangChain-WhydoweuseLangChain?">Why do we use LangChain?</h2><p>Let`s talk about assuming the use of ChatGPT. ChatGPT cannot represent an LLM, but most LLMs suffer from similar limitations.</p><p><strong>Limitations of ChatGPT</strong></p><ol start="1"><li><p>Information access restriction</p><ol start="1"><li><p>Since ChatGPT (GPT-3.5) is an LLM (large language model) trained on data up to 2021, it cannot respond to information from 2022 onwards, or it may provide false answers.</p></li></ol></li><li><p>Token limitation</p><ol start="1"><li><p>The models provided by ChatGPT, GPT-3.5 and GPT-4, have input token limits of 4096 and 8192 tokens, respectively.</p></li></ol></li><li><p>Hallucination</p><ol start="1"><li><p>When asked factual questions, it often gives irrelevant or false answers.</p></li></ol></li></ol><h2 id="LangChain-Howcanweovercomethelimitations?">How can we overcome the limitations?</h2><ol start="1"><li><p><strong>Prompt engineering</strong>: Optimize input prompts to improve the quality of model-generated outputs, gaining significant attention in recent advancements.</p></li><li><p><strong>Multi-task Learning</strong>: Train models to handle multiple tasks simultaneously, enabling a single model to perform various tasks by integrating diverse datasets and task types to enhance performance.</p></li><li><p><strong>Fine-tunning</strong>: Update the existing deep learning model`s weights to tailor it for specific use cases. For example, Bloomberg GPT demonstrates this approach in financial news analysis.</p></li><li><p><strong>In-context Learning</strong>: Provide context so that the model can generate output based on that context, enhancing relevance and accuracy.</p></li><li><p><strong>Transfer Learning</strong>: Utilize models pretrained on different tasks to enhance performance in new applications, closely linked with fine-tuning for optimal adaptation.</p></li><li><p><strong>N-shot Learning</strong>: Adjust the deep learning output by providing 0 to n examples of output for the intended use case, addressing data scarcity issues effectively.</p></li></ol><div class="table-wrap"><table data-table-width="856" data-layout="default" data-local-id="adbf2429-6a91-4c46-916e-cb9d6fea16fb" class="confluenceTable"><colgroup><col style="width: 115.0px;"/><col style="width: 365.0px;"/><col style="width: 375.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p style="text-align: center;">Technique</p></th><th class="confluenceTh"><p style="text-align: center;">Pros</p></th><th class="confluenceTh"><p style="text-align: center;">Cons</p></th></tr><tr><td class="confluenceTd"><p style="text-align: center;"><strong>Prompt Engineering</strong></p></td><td class="confluenceTd"><p>Enhances model output quality and accuracy through optimized input prompts.</p></td><td class="confluenceTd"><p>Requires design and adjustment of input prompts, may involve human intervention.</p></td></tr><tr><td class="confluenceTd"><p style="text-align: center;"><strong>Multi-task Learning</strong></p></td><td class="confluenceTd"><p>Increases resource efficiency by handling multiple tasks with a single model.</p></td><td class="confluenceTd"><p>Risk of task interference and requires complex training and model design.</p></td></tr><tr><td class="confluenceTd"><p style="text-align: center;"><strong>Fine-tuning</strong></p></td><td class="confluenceTd"><p>Enables model optimization for specific tasks with minimal data, achieving high performance.</p></td><td class="confluenceTd"><p>Requires additional data and computational resources, prone to overfitting.</p></td></tr><tr><td class="confluenceTd"><p style="text-align: center;"><strong>In-context Learning</strong></p></td><td class="confluenceTd"><p>Generates accurate outputs by considering provided context.</p></td><td class="confluenceTd"><p>Output quality varies based on input context quality, requires complex context provision.</p></td></tr><tr><td class="confluenceTd"><p style="text-align: center;"><strong>Transfer Learning</strong></p></td><td class="confluenceTd"><p>Enhances performance in new tasks using pretrained models.</p></td><td class="confluenceTd"><p>Potential issues with unsuitable pretrained models and domain adaptation.</p></td></tr><tr><td class="confluenceTd"><p style="text-align: center;"><strong>N-shot Learning</strong></p></td><td class="confluenceTd"><p>Improves performance with limited data, addressing data scarcity.</p></td><td class="confluenceTd"><p>Performance may degrade with insufficient examples, influenced by data quality and diversity.</p></td></tr></tbody></table></div><h2 id="LangChain-Summary">Summary</h2><p>LangChain serves as a platform that adjust language models in various ways and enables them to be applied to specific tasks. It functions as a tool supporting diverse learning and application techniques.</p><p /><h3 id="LangChain-AppendixA"><strong>Appendix A</strong></h3><p>More information</p><ul><li><p>Get started with Python <a class="external-link" data-card-appearance="inline" href="https://python.langchain.com/v0.1/docs/get_started/introduction/" rel="nofollow">https://python.langchain.com/v0.1/docs/get_started/introduction/</a></p></li><li><p>Get started with JavaScript <a class="external-link" data-card-appearance="inline" href="https://js.langchain.com/v0.2/docs/introduction/" rel="nofollow">https://js.langchain.com/v0.2/docs/introduction/</a> </p></li></ul><h3 id="LangChain-AppendixB"><strong>Appendix B</strong></h3><p>Step-by-step basic workflow.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240619-200755.png" width="760" loading="lazy" src="attachments/1181646902/1181646946.png?width=760" data-image-src="attachments/1181646902/1181646946.png" data-height="585" data-width="1205" data-unresolved-comment-count="0" data-linked-resource-id="1181646946" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240619-200755.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1181646902" data-linked-resource-container-version="2" data-media-id="60c204da-b062-44c0-9d08-803ff01a2df2" data-media-type="file"></span><ul><li><p>Step 1: Load the document</p></li><li><p>Step 2: Splitting the document into chunks</p></li><li><p>Step 3: Use Embedding against Chunk Data and convert to vectors</p></li><li><p>Step 4: Save data to the Vector database</p></li><li><p>Step 5: Take data(question) from the user and get the embedding</p></li><li><p>Step 6: Connect to VectorDB and do a semantic search</p></li><li><p>Step 7: Retrieve relevant responses based on user queries and send them to LLM</p></li><li><p>Step 8: Get an answer from LLM and send it back to the user</p></li></ul><h3 id="LangChain-AppendixC"><strong>Appendix C</strong></h3><p><strong>Embedding</strong>: Representing words or sentence in a vector space to preserve meaning of relationships for computer understanding.</p><p><strong>Corpus</strong>: Collection of text data used for analysis in natural language processing.</p><p><strong>Vector store</strong>: Repositories for storing and managing word or sentence embeddings efficiently.</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1181646902/1181319247.png">image-20240619-193517.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1181646902/1181646946.png">image-20240619-200755.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1181646902/1181679683.png">image-20240619-201736.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:25</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

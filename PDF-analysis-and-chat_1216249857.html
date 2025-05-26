@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : PDF analysis and chat</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="S24-INDEX_1249640453.html">S24-INDEX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tech-Stack_1178992716.html">Tech Stack</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : PDF analysis and chat
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Diego Andres Bolanos Osejo (Unlicensed)</span> on Jul 10, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>The application is a full stack Python application that lets you ask questions about a PDF file.
+
+The application uses LangChain for orchestration, Streamlit for the UI, Ollama to run the LLM, and Neo4j to store vectors.</p><h4 id="PDFanalysisandchat-Step1:SettingUptheDevelopmentEnvironment"><strong>Step 1: Setting Up the Development Environment</strong></h4><p><strong>Install Docker</strong></p><p>Ensure Docker is installed on your machine. Follow the installation instructions specific to your operating system from the <a class="external-link" href="https://docs.docker.com/get-docker/" rel="nofollow">Docker installation guide</a>.</p><p><strong>Step 2: Containerizing the Application</strong></p><p>The application requires a Neo4j database service and an LLM service to function. Refer to the following guide for more information about containerization <a class="external-link" href="https://docs.docker.com/guides/use-case/genai-pdf-bot/containerize/" rel="nofollow">Containerize a generative AI application | Docker Docs</a></p><h4 id="PDFanalysisandchat-Step3:DevelopingtheChatApplication"><strong>Step 3: Developing the Chat A pplication</strong></h4><ul><li><p>Adding a local database</p></li><li><p>Adding a local or remote LLM service</p></li></ul><h2 id="PDFanalysisandchat-Addalocaldatabase">Add a local database</h2><p>Using containers to set up local services, like a database, it’s necessary to specify the environment variables file to load the database connection information rather than manually entering the information every time.</p><p>To run the database service:</p><ol start="1"><li><p>Inside the <code>.env</code> file specify the environment variables that the containers will use.</p></li><li><p>In the <code>compose.yaml</code> file:</p><ul><li><p>Add instructions to run a Neo4j database</p></li><li><p>Specify the environment file under the server service in order to pass in the environment variables for the connection</p></li></ul></li><li><p>Access the application. Open a browser and view the application at <a class="external-link" href="http://localhost:8000/" rel="nofollow"><u>http://localhost:8000</u></a> to run a simple Streamlit application. Note that asking questions to a PDF at this point will cause the application to fail because the LLM service specified in the <code>.env</code> file isn't running yet.</p></li></ol><h2 id="PDFanalysisandchat-AddalocalorremoteLLMservice">Add a local or remote LLM service</h2><p>The sample application supports both <strong>Ollama </strong>and <strong>OpenAI</strong>. This guide provides instructions for the following scenarios:</p><ul><li><p>Run Ollama in a container</p></li><li><p>Run Ollama outside of a container</p></li><li><p>Use OpenAI</p></li></ul><p>While all platforms can use any of the previous scenarios, the performance and GPU support may vary. Refer to the following guidelines to help choosing the appropriate option:</p><ul><li><p>Run Ollama in a container on Linux, and using a native installation of the Docker Engine, or Windows 10/11, and using Docker Desktop if there’s a CUDA-supported GPU, and your system has at least 8 GB of RAM.</p></li><li><p>Use OpenAI if the previous two scenarios don't apply to you.</p></li></ul><p>When running Ollama in a container, a CUDA-supported GPU is required. running Ollama in a container without a supported GPU, the performance may not be acceptable. <strong>Only Linux and Windows 11 support GPU access to containers.</strong></p><p>To run Ollama in a container and provide GPU access:</p><ol start="1"><li><p>Install the prerequisites.</p><ul><li><p>For Docker Engine on Linux, install the <a class="external-link" href="https://github.com/NVIDIA/nvidia-container-toolkit" rel="nofollow"><u>NVIDIA Container Toolkilt</u></a>.</p></li><li><p>For Docker Desktop on Windows 10/11, install the latest <a class="external-link" href="https://www.nvidia.com/Download/index.aspx" rel="nofollow"><u>NVIDIA driver</u></a> and make sure you are using the <a class="external-link" href="https://docs.docker.com/desktop/wsl/#turn-on-docker-desktop-wsl-2" rel="nofollow"><u>WSL2 backend</u></a></p></li></ul></li></ol><p>If the Compose file has the ollama-pull service, it may take several minutes for the ollama-pull service to pull the model. The ollama-pull service will continuously update the console with its status. After pulling the model, the ollama-pull service container will stop and you can access the application.</p><ul><li><p>Once the application is running, open a browser and access the application at <a class="external-link" href="http://localhost:8000/" rel="nofollow"><u>http://localhost:8000</u></a>.</p></li><li><p>Upload a PDF file, and ask a question about the PDF.</p></li></ul><p>Depending on the current system and the LLM service chosen, it may take several minutes to answer. If using Ollama and the performance isn't acceptable, using OpenAI is the best choice.</p><p>For more information refer to the following site <a class="external-link" href="https://docs.docker.com/guides/use-case/genai-pdf-bot/develop/" rel="nofollow">Use containers for generative AI development | Docker Docs</a></p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:25</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

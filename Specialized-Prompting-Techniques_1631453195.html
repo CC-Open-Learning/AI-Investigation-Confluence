@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : Specialized Prompting Techniques</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="W25-INDEX_1551106050.html">W25-INDEX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tech-Research_1583087617.html">Tech Research</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Prompt-Engineering_1632043013.html">Prompt Engineering</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : Specialized Prompting Techniques
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jongeon</span>, last modified on Feb 19, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h3 id="SpecializedPromptingTechniques-1.RolePrompting(AssigningaRole)"><strong>1. Role Prompting (Assigning a Role)</strong></h3><ul><li><p>Assigning a specific role to the model helps generate more professional and domain-specific responses.</p></li></ul><p>🔹 Example:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># Role-based prompt
+role_prompt = &quot;&quot;&quot;
+You are a cybersecurity expert. Explain the latest cybersecurity trends 
+and suggest strategies for companies to address these threats.
+&quot;&quot;&quot;
+
+print(&quot;Role Prompting Example:&quot;)
+print(role_prompt)</pre>
+</div></div><p>🔹 What happens?<br/>The model responds as a <strong>cybersecurity expert</strong>, providing detailed industry-specific insights.</p><hr/><h3 id="SpecializedPromptingTechniques-2.NegativePrompting(RestrictingUnwantedResponses)"><strong>2. Negative Prompting (Restricting Unwanted Responses)</strong></h3><ul><li><p>Instructs the model to <strong>avoid</strong> using certain words or response styles.</p></li></ul><p>🔹 Example:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># Negative prompting example
+negative_prompt = &quot;&quot;&quot;
+Explain quantum computing, but do NOT use words like &#39;maybe&#39; or &#39;I think&#39;.
+&quot;&quot;&quot;
+
+print(&quot;Negative Prompting Example:&quot;)
+print(negative_prompt)</pre>
+</div></div><p>🔹 What happens?<br/>The model avoids uncertainty and <strong>provides a more confident and direct answer</strong>.</p><hr/><h3 id="SpecializedPromptingTechniques-3.Multi-turnPrompting(ConversationalPrompting)"><strong>3. Multi-turn Prompting (Conversational Prompting)</strong></h3><ul><li><p>Design prompts that maintain <strong>context across multiple interactions</strong>.</p></li></ul><p>🔹 Example:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># Simulating a multi-turn conversation
+conversation = [
+    (&quot;User&quot;, &quot;What is a GPT model?&quot;),
+    (&quot;AI&quot;, &quot;GPT is a natural language processing model developed by OpenAI. Do you want to know more details?&quot;),
+    (&quot;User&quot;, &quot;How does the model learn?&quot;),
+    (&quot;AI&quot;, &quot;GPT is based on the Transformer architecture and learns from large-scale text data to generate natural language responses.&quot;)
+]
+
+print(&quot;Multi-turn Prompting Example:&quot;)
+for role, message in conversation:
+    print(f&quot;{role}: {message}&quot;)</pre>
+</div></div><p>🔹 What happens?<br/>The model <strong>remembers context</strong> from previous interactions, making conversations more <strong>coherent and relevant</strong>.</p><hr/><h2 id="SpecializedPromptingTechniques-4.PromptOptimizationTechniques"><strong>4. Prompt Optimization Techniques</strong></h2><p>✅ <strong>Iterative Refinement (Continuous Improvement)</strong></p><ul><li><p>Start with a simple prompt and gradually refine it based on model responses.</p></li><li><p>If the model doesn’t provide the expected answer, adjust and test again.</p></li></ul><p>✅ <strong>Adjusting Temperature &amp; Max Tokens</strong></p><ul><li><p><strong>Temperature:</strong> Controls randomness (0.1 = structured response, 0.9 = more creative response).</p></li><li><p><strong>Max Tokens:</strong> Limits the response length to prevent overly long answers.</p></li></ul><p>🔹 Example Adjusting Parameters in an API Call)</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">import openai
+
+response = openai.ChatCompletion.create(
+    model=&quot;gpt-4&quot;,
+    messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Summarize the history of AI.&quot;}],
+    temperature=0.5,  # Moderate creativity
+    max_tokens=200  # Limits response length
+)
+
+print(&quot;Optimized Response:&quot;, response[&quot;choices&quot;][0][&quot;message&quot;][&quot;content&quot;])</pre>
+</div></div><p>✅ <strong>Combining with RAG (Retrieval-Augmented Generation)</strong></p><ul><li><p>Enhances the prompt by <strong>incorporating real-time retrieved information</strong>.</p></li></ul><p>🔹 Example (Python - Fetching External Data for RAG)</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">import requests
+
+def search_wikipedia(query):
+    url = f&quot;https://en.wikipedia.org/api/rest_v1/page/summary/{query.replace(&#39; &#39;, &#39;_&#39;)}&quot;
+    response = requests.get(url)
+    
+    if response.status_code == 200:
+        return response.json().get(&quot;extract&quot;, &quot;No summary available.&quot;)
+    return &quot;Failed to retrieve information.&quot;
+
+# Example: Using retrieved data in a prompt
+topic = &quot;Artificial Intelligence&quot;
+retrieved_info = search_wikipedia(topic)
+
+prompt = f&quot;&quot;&quot;
+Using the latest information retrieved from Wikipedia:
+{retrieved_info}
+
+Now, summarize this information in a clear and concise way.
+&quot;&quot;&quot;
+
+print(&quot;RAG-based Prompting Example:&quot;)
+print(prompt)</pre>
+</div></div><p>✅ <strong>Human-in-the-Loop (HITL) Review</strong></p><ul><li><p>Involves human <strong>feedback and verification</strong> to improve prompt quality.</p></li></ul><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:27</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,15 @@
+Data Categorization,,,,,,,,,,,,
+Week,Course Title,Lecture Title,Start Date,End Date,Content Type,Content Title,Assignment Title,Assignment Due Date,Quiz Title,Quiz Date Start,Has Quiz,Has Rubric
+1,Introduction to Big Data,Course Introduction,2022-09-08 13:00,2022-09-08 16:00,Presentation,lesson00_CourseIntroduction.pptx,,,,,No,No
+2,Introduction to Big Data,Big Data Concepts,2022-09-15 13:00,2022-09-15 16:00,Presentation,lesson01_BigDataConcepts.pptx,,,,,No,No
+3,Introduction to Big Data,Big Data Adoption Drivers,2022-09-22 13:00,2022-09-22 16:00,Presentation,lesson02_AdoptionDrivers.pptx,,,,,No,No
+4,Introduction to Big Data,Big Data Adoption Considerations,2022-09-29 13:00,2022-09-29 16:00,Presentation,lesson03_AdoptionConsiderations.pptx,Assignment 01,2022-09-30,,,No,Yes
+5,Introduction to Big Data,Adoption Considerations,2022-10-06 13:00,2022-10-06 16:00,Presentation,lesson04_MoreConsiderations.pptx,Assignment 02,2022-10-17,,,No,Yes
+6,Introduction to Big Data,Big Data Business Intelligence,2022-10-13 13:00,2022-10-13 16:00,Presentation,lesson05_BigDataIntelligence.pptx,,,,,No,No
+7,Introduction to Big Data,Big Data Storage Concepts,2022-10-20 13:00,2022-10-20 16:00,Presentation,lesson06_BigDataStorage.pptx,,,Midterm Exam,2022-10-20,Yes,Yes
+9,Introduction to Big Data,Big Data Processing Concepts,2022-11-03 13:00,2022-11-03 16:00,Presentation,lesson07_BigDataProcessing.pptx,Assignment 03,2022-11-11,,,No,Yes
+10,Introduction to Big Data,MapReduce Jobs,2022-11-10 13:00,2022-11-10 16:00,Presentation,lesson08_MapReduceJobs.pptx,Assignment 04,2022-11-18,,,No,Yes
+11,Introduction to Big Data,Hive,2022-11-17 13:00,2022-11-17 16:00,Presentation,lesson09_Hive.pptx,Assignment 05,2022-11-25,,,No,Yes
+12,Introduction to Big Data,Pig,2022-11-24 13:00,2022-11-24 16:00,Presentation,lesson10_Pig.pptx,Assignment 06,2022-12-02,,,No,Yes
+13,Introduction to Big Data,YARN,2022-12-01 13:00,2022-12-01 16:00,Presentation,lesson11_YARN.pptx,,,,,No,No
+14,Introduction to Big Data,Spark,2022-12-08 13:00,2022-12-08 16:00,Presentation,lesson12_Spark.pptx,,,Final Exam,2022-12-15,No,No

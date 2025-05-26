@@ -1,0 +1,21 @@
+Rubric Title,Criterion,Level,Score,Description
+Assignment1 Rubric,Data System Differences,Level 1 - Fail,5,The differences between traditional data systems and Big Data systems are not discussed.
+Assignment1 Rubric,Data System Differences,Level 2 - Pass,6,The differences between traditional data systems and Big Data systems are discussed but very briefly.
+Assignment1 Rubric,Data System Differences,Level 3 - Acceptable,7,The differences between traditional data systems and Big Data systems are discussed but the discussion contained many errors.
+Assignment1 Rubric,Data System Differences,Level 4 - Accomplished,8,The differences between traditional data systems and Big Data systems are discussed thoroughly but the discussion contained some errors.
+Assignment1 Rubric,Data System Differences,Level 5 - Exceptional,10,The differences between traditional data systems and Big Data systems are discussed thoroughly and contained no errors.
+Assignment1 Rubric,Data System Limitations,Level 1 - Fail,2.5,The limitations of traditional data systems are not discussed.
+Assignment1 Rubric,Data System Limitations,Level 2 - Pass,3,The limitations of traditional data systems are discussed but very briefly.
+Assignment1 Rubric,Data System Limitations,Level 3 - Acceptable,3.5,The limitations of traditional data systems are discussed but the discussion contained many errors.
+Assignment1 Rubric,Data System Limitations,Level 4 - Accomplished,4.5,The limitations of traditional data systems are discussed thoroughly but the discussion contained some errors.
+Assignment1 Rubric,Data System Limitations,Level 5 - Exceptional,5,The limitations of traditional data systems are discussed thoroughly and contained no errors.
+Assignment1 Rubric,Example Cases,Level 1 - Fail,5,No example cases provided for traditional or Big Data systems.
+Assignment1 Rubric,Example Cases,Level 2 - Pass,6,"A case for a Big Data system or traditional data system is provided, but not cases for both."
+Assignment1 Rubric,Example Cases,Level 3 - Acceptable,7,A case for a Big Data system and a traditional data system is provided. The case examples do not identify why the system in question is the better choice. Cases may contain many logical errors.
+Assignment1 Rubric,Example Cases,Level 4 - Accomplished,8,A case for a Big Data system and a traditional data system is provided. The case examples identify why the system in question is the better choice but contain some logical errors.
+Assignment1 Rubric,Example Cases,Level 5 - Exceptional,10,A case for a Big Data system and a traditional data system is provided. The case examples correctly identify why the system in question is the better choice and contain no logical errors.
+Assignment1 Rubric,References,Level 1 - Fail,2.5,No references provided.
+Assignment1 Rubric,References,Level 2 - Pass,3,"References provided, but the list is not in APA format. No citations provided in-text."
+Assignment1 Rubric,References,Level 3 - Acceptable,3.5,"References provided, but the list is not in APA format. Citations provided in-text."
+Assignment1 Rubric,References,Level 4 - Accomplished,4.5,References provided in correct APA format. Some citations correctly provided in-text.
+Assignment1 Rubric,References,Level 5 - Exceptional,5,References provided in correct APA format. All citations correctly provided in-text.

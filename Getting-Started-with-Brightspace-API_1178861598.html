@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : Getting Started with Brightspace API</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="S24-INDEX_1249640453.html">S24-INDEX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Data-Team---Research_1267761154.html">Data Team - Research</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : Getting Started with Brightspace API
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Arsh Chauhan</span>, last modified on Jul 30, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="GettingStartedwithBrightspaceAPI-BrightspaceAPI">Brightspace API</h1><h3 id="GettingStartedwithBrightspaceAPI-TechnologicalFeatures">Technological Features</h3><ul><li><p>All the Architecture of the D2L Brightspace API is based on the Web2.0 and cloud servers that permit richly integrated apps, easy configuration and operational independence.<strong> All the access to the D2L space is supported through HTTP and HTTPS</strong></p></li><li><p>OAuth 2.0 is supported by the API so that it can ensure transparently all authentication scenarios involving applications. They can also ensure that all the API routes  into LMS occur within the context of particular user login, service administrators can be confident that application is safe to use</p></li><li><p>Open source library wrappers are also provided for a number of languages with an emphasis on prioritizing the more sophisticated authentication steps of application’s interaction with LMS</p></li></ul><h1 id="GettingStartedwithBrightspaceAPI-SecurityFeatures">Security Features</h1><p>Brightspace implements LTI Standards to provide third parties with a way to integrate LTI’s service with Brightspace user experience in standard based way incorporating robust, service to service trust. Now the question is what is LTI and what are the advantages of LTI. LTI is Learning Tools Interoperability and they are used to connect learning tools with institution’s learning environment without logging into each tool. LTI supports high level of security for passing data about the users, their institutional enrollment and roles. For more information about LTI refer - <a class="external-link" data-card-appearance="inline" href="https://www.1edtech.org/standards/lti" rel="nofollow">https://www.1edtech.org/standards/lti</a> </p><h1 id="GettingStartedwithBrightspaceAPI-BeginningSteps">Beginning Steps</h1><p>To use the Brightspace API using OAuth we have four entities in that</p><ol start="1"><li><p>APIs - Its like application or data APIs. Also known as the resource server in the official specifications</p></li><li><p>Application - Its the third part application that use the API(Like our chatbot). It is also known as the <strong>client</strong>. </p></li><li><p>Authorization Server - It provides access token among other responsibilities </p></li><li><p>User - A student or instructor who are going to use that application</p></li></ol><h2 id="GettingStartedwithBrightspaceAPI-Registerapplication">Register application </h2><p>By using Brightspace Manage extensibility tool we can register the application with Brightspace OAuth2 authentication service. That application will use its ClientID as a public “name” to uniquely identify itself to the Brightspace Authentication Service later when requesting authentication tokens. </p><h2 id="GettingStartedwithBrightspaceAPI-CreatingLMSTestaccount">Creating LMS Test account </h2><p>Every Brightspace API call happens within a calling user context, and the LMS will limit the functionality it extends to your call depending upon the permissions that user would have logged in to the LMS and using through the standard browser interface.{<a class="external-link" data-card-appearance="inline" href="https://docs.valence.desire2learn.com/basic/firstlist.html" rel="nofollow">https://docs.valence.desire2learn.com/basic/firstlist.html</a> </p><h2 id="GettingStartedwithBrightspaceAPI-ChoosingDevEnvironment">Choosing Dev Environment</h2><p>Brightspace API is a platform neutral for development such as OAuth2 and the use of HTTP transport </p><h1 id="GettingStartedwithBrightspaceAPI-StepstoRegisterforanApplication">Steps to Register for an Application</h1><ol start="1"><li><p>As a <strong>System Administrator</strong>, navigate to the Manage Extensibility admin tool</p></li><li><p>Click the OAuth2.0 Tab. </p></li><li><p>Click the Register an app button</p></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240619-135504.png" width="473" loading="lazy" src="attachments/1178861598/1181745158.png?width=473" data-image-src="attachments/1178861598/1181745158.png" data-height="198" data-width="473" data-unresolved-comment-count="0" data-linked-resource-id="1181745158" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240619-135504.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1178861598" data-linked-resource-container-version="5" data-media-id="1b078311-bc62-47d2-b589-fa34bde24608" data-media-type="file"></span><p> </p><ol start="4"><li><p>In the <em>Application Name</em> field, enter the name of your app. Brightspace Learning Environment users see this name on the consent page.</p></li><li><p>In the <em>Redirect URI</em> field, enter the URI for the page that you want users to be redirected to after authorization is successful.</p></li><li><p>In the <em>Scope</em> field, enter a value that represents the scope of the resources you want the app to be able to access on behalf of the user. This value must take the form of a space-delimited string that describes the resource group type, the resource, and the permissions you want the app to have (group:resource:permissions group2:resource2:permissions2). For example, <code>data:aggregates:read</code>.</p></li><li><p>In the <em>Access Token Lifetime</em> field, enter a value in seconds that represents the amount of time that you want the token to be valid for. After this time, the token becomes invalid and the user is prompted to log in again.</p><p>Note that you must provide a value between 1800 seconds (30 minutes) and 72000 seconds (20 hours).</p></li><li><p>To prompt users to grant the app consent to use their account, select the <em>Prompt for user consent</em> check box.</p></li><li><p>To enable the use of refresh tokens, select the <em>Enable refresh tokens</em> check box.</p></li><li><p>After reading the Non-Commercial Developer Agreement, select the <em>I accept the Non-Commercial Developer Agreement</em> check box stating you agree to the terms.</p></li><li><p>Click <em>Register</em>.</p></li></ol><p>Refer this - <a class="external-link" data-card-appearance="inline" href="https://docs.valence.desire2learn.com/basic/oauth2.html" rel="nofollow">https://docs.valence.desire2learn.com/basic/oauth2.html</a> </p><p /><p /><p>After Registering the application click the name of the application for which we want to get the credentials and from that we can get <strong>ClientID</strong> and <strong>Client Secret</strong> for the secret fields.</p><p /><h1 id="GettingStartedwithBrightspaceAPI-Stepstorevokethecontentfromanauthenticatedapp">Steps to revoke the content from an authenticated app</h1><ol start="1"><li><p>Navigate to My Settings widget</p></li><li><p>Click Account Settings</p></li><li><p>In that application settings, Click Manage applications registered with OAuth 2.0</p></li><li><p>On the Manage Applications page, click the app that you want to revoke authentication from </p></li><li><p>Click Remove App. </p></li></ol><p /><h1 id="GettingStartedwithBrightspaceAPI-Thingstokeepinmind">Things to keep in mind</h1><p /><ol start="1"><li><p><strong>API Rate Limiting</strong>: Brightspace API calls include additional data in the response header to indicate the remaining number of credits available within the current minute, which implies there’s a limit to the number of API calls that can be made.</p><ul><li><p><strong>Solution</strong>: Manage the number of API calls and monitor the <code>X-Rate-Limit-Remaining</code> header to stay within the rate limits. If the limit is exceeded, the information will be available through the Brightspace System Log.</p></li><li><p>Refer to this - <a class="external-link" data-card-appearance="inline" href="https://community.d2l.com/brightspace/kb/articles/1460-brightspace-api-rate-logging" rel="nofollow">https://community.d2l.com/brightspace/kb/articles/1460-brightspace-api-rate-logging</a> </p></li></ul></li><li><p><strong>User Context Limitations</strong>: Every API call happens within a calling user context, and the LMS limits the functionality extended to your call depending on the permissions that user would have.</p><ul><li><p><strong>Solution</strong>: Ensure that the user context for the API call has the necessary permissions to perform the desired actions.</p></li><li><p>Refer to this - <a class="external-link" data-card-appearance="inline" href="https://docs.valence.desire2learn.com/basic/firstlist.html" rel="nofollow">https://docs.valence.desire2learn.com/basic/firstlist.html</a> </p></li></ul></li><li><p><strong>Character Limitations</strong>: There are character limits within Brightspace when editing fields, which can prevent saving until the number of characters is under the specified limit.</p><ul><li><p><strong>Solution</strong>: Be mindful of character limits when designing the chatbot’s responses to ensure compatibility with Brightspace’s character limitations.</p></li><li><p>Refer to this - <a class="external-link" data-card-appearance="inline" href="https://community.d2l.com/brightspace/kb/articles/18831-character-limitations-within-brightspace" rel="nofollow">https://community.d2l.com/brightspace/kb/articles/18831-character-limitations-within-brightspace</a> </p></li></ul></li></ol><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1178861598/1181745158.png">image-20240619-135504.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:25</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

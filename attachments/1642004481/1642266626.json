@@ -1,0 +1,142 @@
+{
+    "Chapters": [
+        {
+            "Chapter": 1,
+            "Title": "Rapid Introduction to Procedural Programming",
+            "Key_Concepts": [
+                "Creating and Running Python Programs",
+                "Python\u2019s 'Beautiful Heart' \u2013 Core Syntax and Concepts",
+                "Data Types, Object References, and Control Flow",
+                "Functions, I/O, and Basic Arithmetic Operations"
+            ],
+            "Exercises": [
+                "Modify bigdigits.py to use digits instead of asterisks for output.",
+                "Create a program that calculates the average of user-entered numbers.",
+                "Build a program to generate random poetry using predefined word lists."
+            ],
+            "Summary": "This chapter provides a rapid introduction to procedural programming in Python, covering essential concepts like data types, control flow, and basic I/O. It introduces Python's core syntax, demonstrating how to write and run simple programs, use functions, and handle user input and output.",
+            "Code_Examples": [
+                {
+                    "Filename": "bigdigits.py",
+                    "Description": "Outputs large-sized digits on the console using asterisks or digits.",
+                    "Code_Snippet": "import sys\n\nDigits = [\n    [' *** ', ' * * ', '*   *', '*   *', '*   *', ' * * ', ' *** '], # Zero\n    ['  *  ', ' **  ', '  *  ', '  *  ', '  *  ', '  *  ', ' *** '], # One\n    # Additional digits here\n]\n\ndef print_big_digits(digits):\n    for row in range(7):\n        line = ''\n        for digit in digits:\n            number = int(digit)\n            line += Digits[number][row] + '  '\n        print(line)\n\nif __name__ == '__main__':\n    if len(sys.argv) == 2:\n        print_big_digits(sys.argv[1])\n    else:\n        print('Usage: bigdigits.py <number>')"
+                },
+                {
+                    "Filename": "generate_grid.py",
+                    "Description": "Generates a grid of random integers based on user-defined rows, columns, and range.",
+                    "Code_Snippet": "import random\n\ndef get_int(msg, minimum, default):\n    while True:\n        try:\n            line = input(msg)\n            if not line and default is not None:\n                return default\n            i = int(line)\n            if i < minimum:\n                print('must be >=', minimum)\n            else:\n                return i\n        except ValueError as err:\n            print(err)\n\nrows = get_int('rows: ', 1, None)\ncolumns = get_int('columns: ', 1, None)\nminimum = get_int('minimum (or Enter for 0): ', -1000000, 0)\nmaximum = get_int('maximum (or Enter for 1000): ', minimum, 1000)\n\nfor _ in range(rows):\n    print(' '.join(f'{random.randint(minimum, maximum):7d}' for _ in range(columns)))"
+                }
+            ]
+        },
+        {
+            "Chapter": 2,
+            "Title": "Data Types",
+            "Key_Concepts": [
+                "Identifiers and Keywords",
+                "Integral Types: int, bool",
+                "Floating-Point Types: float, complex, decimal.Decimal",
+                "String Manipulation and Methods"
+            ],
+            "Exercises": [
+                "Develop a program to compare floating-point precision between float and Decimal.",
+                "Create a text analyzer that counts specific data types in a given text.",
+                "Write a program that normalizes Unicode strings."
+            ],
+            "Summary": "This chapter delves into Python's core data types, including integers, booleans, floating-point numbers, complex numbers, decimals, and strings. It explains identifiers, keywords, and the handling of Unicode characters, as well as methods for manipulating strings and numbers.",
+            "Code_Examples": [
+                {
+                    "Filename": "quadratic.py",
+                    "Description": "Solves quadratic equations and displays real or complex roots.",
+                    "Code_Snippet": "import cmath\nimport sys\n\ndef get_float(msg, allow_zero):\n    while True:\n        try:\n            x = float(input(msg))\n            if not allow_zero and abs(x) < sys.float_info.epsilon:\n                print('zero is not allowed')\n                continue\n            return x\n        except ValueError as err:\n            print(err)\n\nprint('ax\u00b2 + bx + c = 0')\na = get_float('enter a: ', False)\nb = get_float('enter b: ', True)\nc = get_float('enter c: ', True)\n\nd = cmath.sqrt(b**2 - 4*a*c)\nx1 = (-b + d) / (2*a)\nx2 = (-b - d) / (2*a)\n\nprint(f'{a}x\u00b2 + {b}x + {c} = 0 \u2192 x = {x1} or x = {x2}')"
+                },
+                {
+                    "Filename": "csv2html.py",
+                    "Description": "Converts CSV files into HTML tables with formatted data.",
+                    "Code_Snippet": "import sys\n\nprint('<table border=\"1\">')\ncount = 0\nfor line in sys.stdin:\n    color = 'lightgreen' if count == 0 else 'white' if count % 2 else 'lightyellow'\n    print(f'<tr bgcolor=\"{color}\">')\n    fields = line.strip().split(',')\n    for field in fields:\n        if field.isdigit():\n            print(f'<td align=\"right\">{field}</td>')\n        else:\n            print(f'<td>{field}</td>')\n    print('</tr>')\n    count += 1\nprint('</table>')"
+                }
+            ]
+        },
+        {
+            "Chapter": 3,
+            "Title": "Collection Data Types",
+            "Key_Concepts": [
+                "Sequence Types: Tuples, Lists",
+                "Set Types: Sets, Frozen Sets",
+                "Mapping Types: Dictionaries",
+                "Iterating and Copying Collections"
+            ],
+            "Exercises": [
+                "Write a program that demonstrates the use of tuples and named tuples.",
+                "Create a program that compares the performance of lists vs. sets in membership tests.",
+                "Build a program to manipulate dictionaries, including nested dictionaries."
+            ],
+            "Summary": "This chapter focuses on Python\u2019s collection data types: tuples, lists, sets, frozensets, and dictionaries. It covers their characteristics, methods for manipulating collections, and techniques for iterating over and copying collections, providing practical examples and exercises.",
+            "Code_Examples": [
+                {
+                    "Filename": "generate_usernames.py",
+                    "Description": "Generates unique usernames from staff data.",
+                    "Code_Snippet": "import sys\nimport collections\n\nUser = collections.namedtuple('User', 'username forename middlename surname id')\n\ndef process_line(line, usernames):\n    fields = line.rstrip().split(':')\n    username = (fields[1][0] + fields[3]).lower()\n    original_username = username\n    count = 1\n    while username in usernames:\n        username = f'{original_username}{count}'\n        count += 1\n    usernames.add(username)\n    return User(username, fields[1], fields[2], fields[3], fields[0])\n\nusernames = set()\nusers = {}\nfor filename in sys.argv[1:]:\n    for line in open(filename, encoding='utf8'):\n        if line:\n            user = process_line(line, usernames)\n            users[(user.surname.lower(), user.forename.lower(), user.id)] = user\n\nfor user in sorted(users.values()):\n    print(f'{user.surname}, {user.forename} ({user.id}) {user.username}')"
+                }
+            ]
+        },
+        {
+            "Chapter": 4,
+            "Title": "Control Structures and Functions",
+            "Key_Concepts": [
+                "Control Structures: if, for, while, try-except",
+                "Custom Functions and Lambda Expressions",
+                "Exception Handling and Assertions",
+                "Global Scope and Variable Access"
+            ],
+            "Exercises": [
+                "Design a program that uses recursion to solve a mathematical problem.",
+                "Implement a calculator using functions and exception handling.",
+                "Create a program that demonstrates the use of lambda functions and list comprehensions."
+            ],
+            "Code_Examples": [
+                {
+                    "Filename": "calculator.py",
+                    "Description": "Implements a calculator using functions and exception handling.",
+                    "Code_Snippet": "def add(a, b):\n    return a + b\n\ndef subtract(a, b):\n    return a - b\n\ndef multiply(a, b):\n    return a * b\n\ndef divide(a, b):\n    try:\n        return a / b\n    except ZeroDivisionError:\n        return \"Error: Division by zero\"\n\nif __name__ == \"__main__\":\n    print(\"Simple Calculator\")\n    a = float(input(\"Enter first number: \"))\n    b = float(input(\"Enter second number: \"))\n    op = input(\"Enter operation (+, -, *, /): \")\n    \n    if op == '+':\n        print(\"Result:\", add(a, b))\n    elif op == '-':\n        print(\"Result:\", subtract(a, b))\n    elif op == '*':\n        print(\"Result:\", multiply(a, b))\n    elif op == '/':\n        print(\"Result:\", divide(a, b))\n    else:\n        print(\"Invalid operation\")\n"
+                },
+                {
+                    "Filename": "lambdas.py",
+                    "Description": "Demonstrates various uses of lambda functions for sorting and expressions.",
+                    "Code_Snippet": "elements = [(2, 12, \"Mg\"), (1, 11, \"Na\"), (1, 3, \"Li\"), (2, 4, \"Be\")]\n\n# Sort by number and name\nelements.sort(key=lambda e: (e[1], e[2]))\nprint(\"Sorted by number and name:\", elements)\n\n# Sort by name (case-insensitive) and then by number\nelements.sort(key=lambda e: (e[2].lower(), e[1]))\nprint(\"Sorted by name and number:\", elements)\n\n# Lambda for area calculation\narea = lambda b, h: 0.5 * b * h\nprint(\"Area of triangle (base=6, height=5):\", area(6, 5))\n"
+                },
+                {
+                    "Filename": "recursion.py",
+                    "Description": "Shows recursive programming techniques like calculating factorials and sorting indented lists.",
+                    "Code_Snippet": "def factorial(x):\n    if x <= 1:\n        return 1\n    return x * factorial(x - 1)\n\nprint(\"Factorial of 5:\", factorial(5))\n\ndef indented_list_sort(indented_list, indent=\"    \"):\n    KEY, ITEM, CHILDREN = range(3)\n\n    def add_entry(level, key, item, children):\n        children.append((level, key, item, []))\n\n    def update_indented_list(entry):\n        level, key, item, children = entry\n        indented_list.append(indent * level + item)\n        for child in sorted(children):\n            update_indented_list(child)\n\n    entries = []\n    for item in indented_list:\n        level = 0\n        i = 0\n        while item.startswith(indent, i):\n            i += len(indent)\n            level += 1\n        key = item.strip().lower()\n        add_entry(level, key, item, entries)\n\n    indented_list = []\n    for entry in sorted(entries):\n        update_indented_list(entry)\n    return indented_list\n\nbefore = [\"Nonmetals\", \" Hydrogen\", \" Carbon\", \" Nitrogen\", \" Oxygen\", \n          \"Inner Transitionals\", \" Lanthanides\", \" Cerium\", \" Europium\", \n          \" Actinides\", \" Uranium\", \" Curium\", \" Plutonium\", \"Alkali Metals\", \n          \" Lithium\", \" Sodium\", \" Potassium\"]\n\nafter = indented_list_sort(before)\nprint(\"Sorted Indented List:\", after)\n"
+                }
+            ]
+        },
+        {
+            "Chapter": 5,
+            "Title": "Modules",
+            "Key_Concepts": [
+                "Modules and Packages",
+                "Custom Modules and Python\u2019s Standard Library",
+                "String Handling, Math Functions, and File Operations",
+                "Networking and Internet Programming Overview"
+            ],
+            "Exercises": [
+                "Write a program that uses Python\u2019s math and random modules to create statistical data.",
+                "Create custom modules and import them into a main program.",
+                "Develop a file handler that reads and writes structured data using JSON."
+            ],
+            "Code_Examples": [
+                {
+                    "Filename": "networking.py",
+                    "Description": "Provides examples of creating TCP clients and servers using Python's socket module.",
+                    "Code_Snippet": "import socket\n\n# Simple TCP Server\ndef tcp_server():\n    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n    server_socket.bind(('localhost', 8080))\n    server_socket.listen(1)\n    print(\"Server is listening on port 8080\")\n    \n    conn, addr = server_socket.accept()\n    print(\"Connection from\", addr)\n    conn.sendall(b'Hello, Client')\n    conn.close()\n\n# Simple TCP Client\ndef tcp_client():\n    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n    client_socket.connect(('localhost', 8080))\n    message = client_socket.recv(1024)\n    print(\"Received from server:\", message.decode())\n    client_socket.close()\n\nif __name__ == \"__main__\":\n    role = input(\"Run as (server/client): \").strip().lower()\n    if role == 'server':\n        tcp_server()\n    elif role == 'client':\n        tcp_client()\n    else:\n        print(\"Invalid role\")\n"
+                },
+                {
+                    "Filename": "file_handler.py",
+                    "Description": "Demonstrates file read/write operations and working with text, binary, and JSON formats.",
+                    "Code_Snippet": "import json\n\n# Writing to a JSON file\ndata = {\n    \"name\": \"John Doe\",\n    \"age\": 30,\n    \"city\": \"New York\"\n}\n\nwith open('data.json', 'w') as json_file:\n    json.dump(data, json_file)\n\n# Reading from a JSON file\nwith open('data.json', 'r') as json_file:\n    loaded_data = json.load(json_file)\n    print(\"Loaded Data:\", loaded_data)\n\n# Reading and writing text files\nwith open('example.txt', 'w') as txt_file:\n    txt_file.write(\"Hello, world!\")\n\nwith open('example.txt', 'r') as txt_file:\n    content = txt_file.read()\n    print(\"Text File Content:\", content)\n"
+                }
+            ]
+        }
+    ]
+}

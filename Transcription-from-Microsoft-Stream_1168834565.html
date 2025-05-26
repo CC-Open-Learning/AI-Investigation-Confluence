@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : Transcription from Microsoft Stream</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="S24-INDEX_1249640453.html">S24-INDEX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Potential-Features_1267269634.html">Potential Features</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : Transcription from Microsoft Stream
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Arsh Chauhan</span> on Jun 12, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This document outlines a process for extracting answers from videos hosted on Microsoft Stream and using those transcriptions to respond to user queries. The workflow involves downloading video content, converting it to an audio format, transcribing the audio using the Deepgram API, and finally saving the transcriptions for analysis. This approach enables efficient indexing and querying of video content, making it possible to extract relevant answers from recorded media. </p><p /><h1 id="TranscriptionfromMicrosoftStream-CodeandExplanation">Code and Explanation<br/> </h1><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240612-192454.png" width="420" loading="lazy" src="attachments/1168834565/1169063961.png?width=420" data-image-src="attachments/1168834565/1169063961.png" data-height="137" data-width="420" data-unresolved-comment-count="0" data-linked-resource-id="1169063961" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240612-192454.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1168834565" data-linked-resource-container-version="1" data-media-id="f6f71b8f-6b88-447a-8610-a594fcd44b45" data-media-type="file"></span><p>In this code we have </p><ul><li><p><strong>dotenv</strong>: Loads environment variables from a <code>.env</code> file into <code>process.env</code>.</p></li><li><p><strong>fs</strong>: File system module for reading and writing files.</p></li><li><p><strong>https</strong>: Module to make HTTPS requests.</p></li><li><p><strong>exec</strong>: Executes shell commands.</p></li><li><p><strong>Deepgram</strong>: Deepgram SDK for transcription.</p></li><li><p><strong>ffmpeg-static</strong>: Provides a static build of FFmpeg.</p></li><li><p><strong>ytdl-core</strong>: Downloads YouTube videos.</p></li><li><p><strong>deepgram</strong>: Initializes the Deepgram API client with the API key from the environment variables.</p></li></ul><p /><p /><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240612-192642.png" width="663" loading="lazy" src="attachments/1168834565/1169850391.png?width=663" data-image-src="attachments/1168834565/1169850391.png" data-height="456" data-width="663" data-unresolved-comment-count="0" data-linked-resource-id="1169850391" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240612-192642.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1168834565" data-linked-resource-container-version="1" data-media-id="d1ef8e04-7507-48f8-b875-9406ae662cbc" data-media-type="file"></span><p /><h2 id="TranscriptionfromMicrosoftStream-TranscriptionFunctions">Transcription Functions</h2><h3 id="TranscriptionfromMicrosoftStream-LocalVideoTranscription">Local Video Transcription</h3><p>In this given function transcribeLocalVideo it is converting the local video to to a .wav format using Ffmpeg and then it is reading that .wav file and it is sending it to the Deepgram for transcription and it is also saving that same file to a json file. Here is also a result of JSON file</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240612-192828.png" width="663" loading="lazy" src="attachments/1168834565/1169358900.png?width=663" data-image-src="attachments/1168834565/1169358900.png" data-height="456" data-width="663" data-unresolved-comment-count="0" data-linked-resource-id="1169358900" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240612-192828.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1168834565" data-linked-resource-container-version="1" data-media-id="814c49f2-c4a7-40e4-b6f6-3520710c56ca" data-media-type="file"></span><h3 id="TranscriptionfromMicrosoftStream-RemoteVideoTranscription">Remote Video Transcription </h3><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240612-192948.png" width="484" loading="lazy" src="attachments/1168834565/1169850397.png?width=484" data-image-src="attachments/1168834565/1169850397.png" data-height="142" data-width="484" data-unresolved-comment-count="0" data-linked-resource-id="1169850397" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240612-192948.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1168834565" data-linked-resource-container-version="1" data-media-id="77bb2fa6-83a6-4746-80dd-998f4e0a28da" data-media-type="file"></span><p> In this function it is downloading the video file and then calling the transcribevideocall function to do the other task which includes getting a json file of the video </p><p /><p /><h3 id="TranscriptionfromMicrosoftStream-YTVideoTranscription">YT Video Transcription</h3><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240612-193124.png" width="595" loading="lazy" src="attachments/1168834565/1169391639.png?width=595" data-image-src="attachments/1168834565/1169391639.png" data-height="318" data-width="595" data-unresolved-comment-count="0" data-linked-resource-id="1169391639" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240612-193124.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1168834565" data-linked-resource-container-version="1" data-media-id="e8d2c82a-60e1-41e1-b7fe-ad941e8b9c0a" data-media-type="file"></span><p>In this function it is getting the YouTube video information using ‘ytdl-core' and then it is downloading the audio stream of the video and then it is calling the ‘transcribeLocalVideo’ to get the json file of that</p><p /><h2 id="TranscriptionfromMicrosoftStream-FileDownloadandffmpegfunction">File Download and ffmpeg function</h2><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240612-193306.png" width="704" loading="lazy" src="attachments/1168834565/1169063968.png?width=704" data-image-src="attachments/1168834565/1169063968.png" data-height="413" data-width="704" data-unresolved-comment-count="0" data-linked-resource-id="1169063968" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240612-193306.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1168834565" data-linked-resource-container-version="1" data-media-id="6d9c1c9a-c8d5-4dbe-977e-a2d4b4e670fc" data-media-type="file"></span><p>In this it is Executing an FFmpeg command using the static FFmpeg build and also Downloading a file from a given URL and saves it locally</p><p /><p /><h2 id="TranscriptionfromMicrosoftStream-Executingfunction">Executing function</h2><p /><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240612-193446.png" width="760" loading="lazy" src="attachments/1168834565/1169391645.png?width=760" data-image-src="attachments/1168834565/1169391645.png" data-height="69" data-width="897" data-unresolved-comment-count="0" data-linked-resource-id="1169391645" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240612-193446.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1168834565" data-linked-resource-container-version="1" data-media-id="e6536aac-e775-4d79-9929-5da7c56e30c7" data-media-type="file"></span><p>Using these commands codes can run</p><p /><p /><p /><h1 id="TranscriptionfromMicrosoftStream-IssuesOccurringatthemoment">Issues Occurring at the moment</h1><ul><li><p>Currently Remote Video downloading and YT Video download function are downloading the YT video and converting that to .wav file and they are required to make a json file too on which i am working and also there is a code too which is predictably working and downloading stream videos but because of no access to the Stream access token and Azure subscription token we cannot do run</p></li></ul><h1 id="TranscriptionfromMicrosoftStream-Futureplansforthiscode">Future plans for this code</h1><ul><li><p>To make it working enough so that it can give the response from the videos and it should also solve the storage issues.(It can be solved if we have the access tokens for the code based on the video we can give the response without downloading the video and that can save the time for us). </p></li></ul>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1168834565/1169850384.png">image-20240612-192433.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1168834565/1169063961.png">image-20240612-192454.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1168834565/1169850391.png">image-20240612-192642.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1168834565/1169358900.png">image-20240612-192828.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1168834565/1169850397.png">image-20240612-192948.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1168834565/1169391639.png">image-20240612-193124.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1168834565/1169063968.png">image-20240612-193306.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1168834565/1169391645.png">image-20240612-193446.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:25</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

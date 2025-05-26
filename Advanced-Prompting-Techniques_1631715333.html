@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : Advanced Prompting Techniques</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="W25-INDEX_1551106050.html">W25-INDEX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tech-Research_1583087617.html">Tech Research</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Prompt-Engineering_1632043013.html">Prompt Engineering</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : Advanced Prompting Techniques
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jongeon</span>, last modified on Feb 19, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h3 id="AdvancedPromptingTechniques-1.Few-shotPrompting(LearningfromExamples)"><strong>1. Few-shot Prompting (Learning from Examples)</strong></h3><p>This method helps the AI learn patterns by providing a few examples in the prompt.</p><p>🔹 Example:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># Prompt with examples
+Q: Capitalize the first letter of &#39;banana&#39;.  
+A: Banana  
+
+Q: Capitalize the first letter of &#39;apple&#39;.  
+A: Apple  
+
+Q: Capitalize the first letter of &#39;grape&#39;.  
+A:  </pre>
+</div></div><p>🔹 What happens?<br/>Since the model has seen examples, it will likely follow the pattern and answer:<br/>✅ &quot;Grape&quot;</p><p /><h3 id="AdvancedPromptingTechniques-2.Chain-of-Thought(CoT)Prompting(Step-by-stepThinking)"><strong>2. Chain-of-Thought (CoT) Prompting (Step-by-step Thinking)</strong></h3><p>This technique encourages the model to think logically and break down problems step by step.</p><p><strong>🔹 </strong>Example<strong>:</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># Problem
+Q: A farmer has 5 chickens, 3 cows, and 2 sheep. How many legs do they have in total?  
+
+A:  
+1. Chickens have 2 legs each. 5 × 2 = 10  
+2. Cows have 4 legs each. 3 × 4 = 12  
+3. Sheep have 4 legs each. 2 × 4 = 8  
+4. Total: 10 + 12 + 8 = 30  
+
+Therefore, the total number of legs is **30**.</pre>
+</div></div><p>🔹 What happens?<br/>Instead of guessing, the model solves the problem step by step, leading to more accurate answers.</p><p /><h3 id="AdvancedPromptingTechniques-3.Self-ConsistencyPrompting(ChoosingtheMostCommonAnswer)"><strong>3. Self-Consistency Prompting (Choosing the Most Common Answer)</strong></h3><p>This method generates multiple answers and selects the most frequent one to ensure consistency.</p><p>🔹 Example:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">import random
+from collections import Counter
+
+# Simulating multiple AI responses
+def generate_answer():
+    answers = [&quot;Paris&quot;, &quot;London&quot;, &quot;Berlin&quot;, &quot;Paris&quot;, &quot;Paris&quot;, &quot;Berlin&quot;, &quot;Paris&quot;]
+    return random.choice(answers)
+
+# Get multiple answers
+responses = [generate_answer() for _ in range(10)]
+
+# Count occurrences
+most_common_answer = Counter(responses).most_common(1)[0][0]
+
+print(&quot;Generated rㅋesponses:&quot;, responses)
+print(&quot;Most consistent answer:&quot;, most_common_answer)
+</pre>
+</div></div><p>🔹 What happens?<br/>The model may give <strong>different answers</strong> each time. To get the most reliable answer, we run multiple responses and choose the most frequent on<strong>e</strong>.</p><p /><h3 id="AdvancedPromptingTechniques-4.ReAct(Reasoning+Acting)"><strong>4. ReAct (Reasoning + Acting)</strong></h3><p>This technique combines thinking (reasoning) and doing (acting). It is useful for tasks that require external information, such as searching the web.</p><p>🔹 Example:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">import requests
+
+def search_wikipedia(query):
+    url = f&quot;https://en.wikipedia.org/api/rest_v1/page/summary/{query.replace(&#39; &#39;, &#39;_&#39;)}&quot;
+    response = requests.get(url)
+    
+    if response.status_code == 200:
+        return response.json().get(&quot;extract&quot;, &quot;No summary available.&quot;)
+    return &quot;Failed to retrieve information.&quot;
+
+def react_example(query):
+    # Step 1: Thinking
+    print(f&quot;Thinking: I need to find information about &#39;{query}&#39;.&quot;)
+
+    # Step 2: Acting
+    print(&quot;Acting: Searching Wikipedia...&quot;)
+    result = search_wikipedia(query)
+
+    # Step 3: Generating Answer
+    print(&quot;Final Answer:&quot;)
+    print(result)
+
+# Example usage
+react_example(&quot;Artificial Intelligence&quot;)</pre>
+</div></div><p>🔹 What happens?</p><ul><li><p>First, the AI <strong>decides what to do</strong> (Reasoning).</p></li><li><p>Then, it <strong>acts</strong> (searching Wikipedia).</p></li><li><p>Finally, it <strong>provides an answer</strong> based on real data.</p></li></ul><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:27</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : ETL Process and Dataset Preparation for prototype</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="S24-INDEX_1249640453.html">S24-INDEX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tech-Stack_1178992716.html">Tech Stack</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : ETL Process and Dataset Preparation for prototype
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Aerish Gaba (Unlicensed)</span>, last modified on Jul 10, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="ETLProcessandDatasetPreparationforprototype-Overview">Overview</h2><p>This document outlines the steps taken to extract data from PDF and video files, perform ETL (Extract, Transform, Load) operations, and prepare the dataset for fine-tuning the Gemma-2 9B parameter model.</p><h2 id="ETLProcessandDatasetPreparationforprototype-DataExtraction">Data Extraction</h2><h3 id="ETLProcessandDatasetPreparationforprototype-ExtractionfromPDFFiles">Extraction from PDF Files</h3><ol start="1"><li><p><strong>Tools Used</strong>:</p><ul><li><p><code>PyMuPDF</code> for PDF processing.</p></li><li><p><code>pdfplumber</code> for extracting text from PDFs.</p></li></ul></li><li><p><strong>Steps</strong>:</p><ul><li><p><strong>Read PDF Files</strong>: Load the PDF files using <code>PyMuPDF</code> or <code>pdfplumber</code>.</p></li><li><p><strong>Extract Text</strong>: Extract text content from each page of the PDF.</p></li><li><p><strong>Store Data</strong>: Save the extracted text to a structured format such as JSON or text file.</p></li></ul></li></ol><h3 id="ETLProcessandDatasetPreparationforprototype-ExtractionfromVideoFiles">Extraction from Video Files</h3><ol start="1"><li><p><strong>Tools Used</strong>:</p></li><li><p><strong>Steps</strong>:</p><ul><li><p><strong>Extract Audio</strong>: Use  to extract audio from video files.</p></li><li><p><strong>Convert Speech to Text</strong>: Use  to transcribe audio to text.</p></li><li><p><strong>Store Data</strong>: Save the transcriptions in a structured format such as JSON or text files.</p></li></ul></li></ol><h2 id="ETLProcessandDatasetPreparationforprototype-ETLProcess">ETL Process</h2><h3 id="ETLProcessandDatasetPreparationforprototype-Extract">Extract</h3><ol start="1"><li><p><strong>Source Identification</strong>:</p><ul><li><p>Identify all PDF and video files containing relevant course content.</p></li><li><p>Consolidate all files into a single directory for processing.</p></li></ul></li></ol><h3 id="ETLProcessandDatasetPreparationforprototype-Transform">Transform</h3><ol start="1"><li><p><strong>Cleaning Data</strong>:</p><ul><li><p>Remove unwanted characters and formatting issues from extracted text.</p></li><li><p>Normalize the text (e.g., converting to lowercase, removing stopwords).</p></li></ul></li><li><p><strong>Structuring Data</strong>:</p><ul><li><p>Organize extracted content into a structured format (e.g., JSON) with appropriate metadata/LLM from transformers (e.g., module names, topics).</p></li></ul></li></ol><h3 id="ETLProcessandDatasetPreparationforprototype-Load">Load</h3><ol start="1"><li><p><strong>Storing Data</strong>:</p><ul><li><p>Save the cleaned and structured data to a persistent storage solution (e.g., a database, cloud storage, or local files).</p></li></ul></li></ol><h2 id="ETLProcessandDatasetPreparationforprototype-PreparingDatasetforFine-Tuning">Preparing Dataset for Fine-Tuning</h2><ol start="1"><li><p><strong>Dataset Formatting</strong>:</p><ul><li><p>Ensure the structured data is formatted correctly for the fine-tuning process.</p></li><li><p>Typically, the data needs to be in a JSONL format, where each line is a JSON object representing a single training example.</p></li></ul></li></ol><h2 id="ETLProcessandDatasetPreparationforprototype-"><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/1215168516/1215954945.ipynb" data-nice-type="null" data-file-src="/wiki/download/attachments/1215168516/clean4_dataset.ipynb?version=1&amp;modificationDate=1720624600579&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="1215954945" data-linked-resource-type="attachment" data-linked-resource-container-id="1215168516" data-linked-resource-default-alias="clean4_dataset.ipynb" data-mime-type="binary/octet-stream" data-has-thumbnail="true" data-linked-resource-version="1" data-media-id="48e5cda1-483d-460f-ad85-eea6226cbbd7" data-media-type="file"><img src="attachments/thumbnails/1215168516/1215954945" height="250"/></a></span> </h2><p class="media-group"><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/1215168516/1215496198.json" data-nice-type="null" data-file-src="/wiki/download/attachments/1215168516/structured_course_data_llm.json?version=1&amp;modificationDate=1720636705935&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="1215496198" data-linked-resource-type="attachment" data-linked-resource-container-id="1215168516" data-linked-resource-default-alias="structured_course_data_llm.json" data-mime-type="application/json" data-has-thumbnail="true" data-linked-resource-version="1" data-media-id="a05dd555-fd89-45a2-9057-17676d6be083" data-media-type="file"><img src="attachments/thumbnails/1215168516/1215496198" height="250"/></a></span></p><hr/>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1215168516/1215954945.ipynb">clean4_dataset.ipynb</a> (binary/octet-stream)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1215168516/1215496198.json">structured_course_data_llm.json</a> (application/json)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:25</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

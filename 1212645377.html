@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : Requirements for Merging Fine-Tuned Model with Base Model (Gemma-2 9B)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="S24-INDEX_1249640453.html">S24-INDEX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tech-Stack_1178992716.html">Tech Stack</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : Requirements for Merging Fine-Tuned Model with Base Model (Gemma-2 9B)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Aerish Gaba (Unlicensed)</span>, last modified by <span class='editor'> Diego Andres Bolanos Osejo (Unlicensed)</span> on Jul 09, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="RequirementsforMergingFine-TunedModelwithBaseModel(Gemma-29B)-Overview">Overview</h2><p>This document outlines the requirements and steps for merging a fine-tuned model with the Gemma-2 9B base model. It includes details on computational resources, GPU requirements, estimated time, and steps involved in the process.</p><h2 id="RequirementsforMergingFine-TunedModelwithBaseModel(Gemma-29B)-ComputationalRequirements">Computational Requirements</h2><h3 id="RequirementsforMergingFine-TunedModelwithBaseModel(Gemma-29B)-HardwareRequirements">Hardware Requirements</h3><h4 id="RequirementsforMergingFine-TunedModelwithBaseModel(Gemma-29B)-GPUSpecifications">GPU Specifications</h4><p>To efficiently merge the models, you will need high-performance GPUs with significant memory. Below are the recommended specifications:</p><ul><li><p><strong>Type</strong>: NVIDIA A100 or V100</p></li><li><p><strong>Number of GPUs</strong>: 4 (Recommended) or 2 (Minimum)</p></li><li><p><strong>Memory per GPU</strong>: At least 40 GB</p></li></ul><h4 id="RequirementsforMergingFine-TunedModelwithBaseModel(Gemma-29B)-CPUandRAM">CPU and RAM</h4><ul><li><p><strong>CPU</strong>: Multi-core processor with at least 32 cores</p></li><li><p><strong>RAM</strong>: At least 128 GB</p></li></ul><h3 id="RequirementsforMergingFine-TunedModelwithBaseModel(Gemma-29B)-EstimatedTime">Estimated Time</h3><p>The time required to merge the models depends on the size of the models and the complexity of the merging process. Below are the estimated times for different GPU configurations:</p><ul><li><p><strong>Quad A100 (40 GB each)</strong>:</p><ul><li><p>Estimated Time: 1-2 hours</p></li></ul></li><li><p><strong>Dual A100 (40 GB each)</strong>:</p><ul><li><p>Estimated Time: 3-4 hours</p></li></ul></li><li><p><strong>Quad V100 (32 GB each)</strong>:</p><ul><li><p>Estimated Time: 2-3 hours</p></li></ul></li></ul><h3 id="RequirementsforMergingFine-TunedModelwithBaseModel(Gemma-29B)-StorageRequirements">Storage Requirements</h3><p>Ensure sufficient storage space for the models:</p><ul><li><p><strong>Base Model (Gemma-2 9B)</strong>: Approximately 36 GB</p></li><li><p><strong>Fine-Tuned Model</strong>: Approximately 1.22 GB</p></li><li><p><strong>Merged Model Output</strong>: Approximately 37.22 GB</p></li><li><p><strong>Mistral-7B Instruct Models</strong>:</p><ul><li><p>Large: Approximately 5 GB</p></li></ul></li><li><p><strong>LLaVA Model</strong>:</p><ul><li><p>llava_model_path: Approximately 4.6 GB</p></li><li><p>clip_model_path: Approximately 600 MB</p></li></ul></li><li><p><strong>Embeddings</strong>: Approximately 5 GB</p></li><li><p><strong>ChromaDB</strong>: Variable (let's assume at least 5 GB for safety)</p></li><li><p><strong>Chat Sessions Database</strong>: Variable, typically small (let's assume 1 GB for safety)</p></li></ul><h3 id="RequirementsforMergingFine-TunedModelwithBaseModel(Gemma-29B)-DockerImageStorageRequirements">Docker Image Storage Requirements</h3><ul><li><p><strong>Base Image</strong>: The <code>python:3.9-slim</code> image is approximately 120 MB.</p></li><li><p><strong>Installed Dependencies</strong>: This includes Python libraries and additional packages like <code>transformers</code>, <code>torch</code>, <code>chromadb</code>, etc. The size can vary, but let's assume an additional 1-2 GB for a comprehensive set of dependencies.</p></li><li><p><strong>Application Code</strong>: Typically small, but let's assume 100 MB for safety.</p></li><li><p><strong>Data and Models</strong>: Already accounted for in the previous storage requirements.</p></li></ul><ul><li><p><strong>Total Storage Required</strong>: At least 102 GB (to accommodate model files, databases, and space for ChromaDB and chat sessions database).</p></li></ul><h2 id="RequirementsforMergingFine-TunedModelwithBaseModel(Gemma-29B)-SoftwareRequirements">Software Requirements</h2><h4 id="RequirementsforMergingFine-TunedModelwithBaseModel(Gemma-29B)-EnvironmentSetup">Environment Setup</h4><ul><li><p><strong>Python</strong>: Version 3.8 or above</p></li><li><p><strong>Transformers Library</strong>: Version 4.5.0 or above</p></li><li><p><strong>PyTorch</strong>: Version 1.7.1 or above</p></li><li><p><strong>ChromaDB</strong>: Latest version</p></li><li><p><strong>SQLite3</strong>: For chat sessions database</p></li></ul><h5 id="RequirementsforMergingFine-TunedModelwithBaseModel(Gemma-29B)-InstallationCommands:">Installation Commands:</h5><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">pip install transformers torch datasets chromadb sqlite3</pre>
+</div></div><h4 id="RequirementsforMergingFine-TunedModelwithBaseModel(Gemma-29B)-StepsforMergingModels">Steps for Merging Models</h4><ol start="1"><li><p><strong>Load the Base Model</strong>: Load the base model (Gemma-2 9B) using the Hugging Face transformers library.</p></li><li><p><strong>Load the Fine-Tuned Model</strong>: Load the fine-tuned model from the specified directory.</p></li><li><p><strong>Update the Base Model Weights</strong>: Replace or average the weights of the base model with those from the fine-tuned model.</p></li><li><p><strong>Save the Merged Model</strong>: Save the updated model to a specified output directory.</p></li></ol><h4 id="RequirementsforMergingFine-TunedModelwithBaseModel(Gemma-29B)-StepsforUsingMistralandLLaVAModels">Steps for Using Mistral and LLaVA Models</h4><ol start="1"><li><p><strong>Load the Mistral Models</strong>:</p><ul><li><p><strong>Large Model Path</strong>: <code>./models/mistral-7b-instruct-v0.1.Q5_K_M.gguf</code></p></li><li><p><strong>Model Type</strong>: <code>&quot;mistral&quot;</code></p></li><li><p><strong>Model Config</strong>: </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">max_new_tokens: 256
+temperature: 0.2
+context_length: 2048
+gpu_layers: 0  # Adjust as necessary for GPU setup
+threads: -1</pre>
+</div></div></li></ul></li><li><p><strong>Load the LLaVA Models</strong>:</p><ul><li><p><strong>LLaVA Model Path</strong>: <code>./models/llava/ggml-model-q5_k.gguf</code></p></li><li><p><strong>CLIP Model Path</strong>: <code>./models/llava/mmproj-model-f16.gguf</code></p></li></ul></li><li><p><strong>Set Up ChromaDB</strong>:</p><ul><li><p><strong>ChromaDB Path</strong>: <code>&quot;chroma_db&quot;</code></p></li><li><p><strong>Collection Name</strong>: <code>&quot;pdfs&quot;</code></p></li></ul></li><li><p><strong>Configure Chat Sessions Database</strong>:</p><ul><li><p><strong>Database Path</strong>: <code>./chat_sessions/chat_sessions.db</code></p></li></ul></li></ol><h4 id="RequirementsforMergingFine-TunedModelwithBaseModel(Gemma-29B)-AdditionalRecommendations">Additional Recommendations</h4><ul><li><p><strong>Cloud Services</strong>: Consider using cloud-based GPU services such as Azure Virtual Machines (VMs) with Standard_ND40rs_v2 or Standard_ND96asr_v4, AWS EC2 with NVIDIA A100 instances, or Google Cloud AI Platform.</p></li></ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:25</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

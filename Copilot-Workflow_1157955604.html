@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : Copilot Workflow</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="S24-INDEX_1249640453.html">S24-INDEX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Microsoft-Co-pilot-Studio_1267302404.html">Microsoft Co-pilot Studio</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : Copilot Workflow
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Devarsh Shah (Unlicensed)</span> on Jun 06, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>=&gt; Overall Workflow to create and deploy chatbot:</strong></p><ol start="1"><li><p>We will need only the website’s link for external questions about the Conestoga website.</p><ol start="1"><li><p>Aerish has already made that copilot. We can fine-tune that.</p></li></ol></li><li><p>For internal questions(on eConestoga), questions → generate prompts → act as inputs for API →  get answers using bright space Apis.</p><ol start="1"><li><p><a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-http-node" rel="nofollow">https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-http-node</a></p></li></ol></li><li><p>We can then deploy our copilot on a live website.</p><ol start="1"><li><p><a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-connect-bot-to-web-channels?tabs=preview" rel="nofollow">https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-connect-bot-to-web-channels?tabs=preview</a></p></li></ol></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240606-191157.png" width="760" loading="lazy" src="attachments/1157955604/1158250512.png?width=760" data-image-src="attachments/1157955604/1158250512.png" data-height="271" data-width="1287" data-unresolved-comment-count="0" data-linked-resource-id="1158250512" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240606-191157.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1157955604" data-linked-resource-container-version="1" data-media-id="87952553-76e5-43f8-8dd7-d7c598964cdd" data-media-type="file"></span><p style="margin-left: 150.0px;">figure: How to standardize results using prompting </p><p><strong>=&gt; Workflow(In Depth):</strong></p><h3 id="CopilotWorkflow-WorkflowforCreatingandDeployingtheChatbot"><u>Workflow for Creating and Deploying the Chatbot</u></h3><h4 id="CopilotWorkflow-Phase1:PlanningandDataCollection">Phase 1: Planning and Data Collection</h4><ol start="1"><li><p><strong>Define Objectives</strong>:</p><ul><li><p>Determine the main purposes of the chatbot (e.g., answering course-related questions, providing grade information, notifying about assignment due dates).</p></li></ul></li><li><p><strong>Identify Data Sources</strong>:</p><ul><li><p><strong>Course Content</strong>: Syllabus, lecture notes, textbooks.</p></li><li><p><strong>Assignment Data</strong>: Assignment descriptions, due dates.</p></li><li><p><strong>Grades Data</strong>: Student grades, feedback from instructors.</p></li></ul></li><li><p><strong>Gather and Organize Data</strong>:</p><ul><li><p>Ensure all data is up-to-date, accurate, and in a structured format suitable for processing.</p></li></ul></li></ol><h4 id="CopilotWorkflow-Phase2:SettingUptheEnvironment">Phase 2: Setting Up the Environment</h4><ol start="1"><li><p><strong>Create an Azure Account</strong> (if not already available):</p><ul><li><p>Sign up for an Azure account to access Microsoft Copilot Studio and other necessary services.</p></li></ul></li><li><p><strong>Access Microsoft Copilot Studio</strong>:</p><ul><li><p>Log in to Copilot Studio through your Azure account.</p></li></ul></li><li><p><strong>Create a New Project</strong>:</p><ul><li><p>Start a new project dedicated to your chatbot.</p></li></ul></li></ol><h4 id="CopilotWorkflow-Phase3:DataPreparationandIntegration">Phase 3: Data Preparation and Integration</h4><ol start="1"><li><p><strong>Upload Datasets</strong>:</p><ul><li><p>Import course content, assignment data, and grades data into Copilot Studio.</p></li></ul></li><li><p><strong>Preprocess Data</strong>:</p><ul><li><p>Clean and structure data to ensure it is suitable for training the AI model.</p></li></ul></li></ol><h4 id="CopilotWorkflow-Phase4:ChatbotDesignandDevelopment">Phase 4: Chatbot Design and Development</h4><ol start="1"><li><p><strong>Define Intents and Entities</strong>:</p><ul><li><p>Identify key intents (e.g., explaining laws of motion, checking grades, querying assignment deadlines).</p></li><li><p>Define entities related to these intents (e.g., specific laws, grade categories, assignment names).</p></li></ul></li><li><p><strong>Train the Natural Language Understanding (NLU) Model</strong>:</p><ul><li><p>Provide examples of user queries for each intent to train the NLU model.</p></li></ul></li><li><p><strong>Create Conversational Flows</strong>:</p><ul><li><p>Design the dialogue structure for each type of query.</p></li><li><p>Use Copilot Studio's tools to build and refine these conversational flows.</p></li></ul></li><li><p><strong>Implement User Authentication</strong>:</p><ul><li><p>Integrate authentication mechanisms to securely fetch and display user-specific data like grades.</p></li></ul></li></ol><h4 id="CopilotWorkflow-Phase5:IntegrationwitheConestoga(D2L)">Phase 5: Integration with eConestoga (D2L)</h4><ol start="1"><li><p><strong>API Integration</strong>:</p><ul><li><p>Use D2L Brightspace APIs to dynamically access and update data within the eConestoga portal.</p></li><li><p>Set up secure API calls, handling OAuth tokens as required.</p></li></ul></li><li><p><strong>Embed the Chatbot in eConestoga</strong>:</p><ul><li><p>Use iframes or embedding options provided by D2L to integrate the chatbot interface into the portal.</p></li><li><p>Ensure the chatbot is easily accessible to users.</p></li></ul></li></ol><h4 id="CopilotWorkflow-Phase6:Testing">Phase 6: Testing</h4><ol start="1"><li><p><strong>Functional Testing</strong>:</p><ul><li><p>Test each intent and conversational flow to ensure they work correctly.</p></li><li><p>Verify that the chatbot can accurately retrieve and display grades, assignment due dates, and course content.</p></li></ul></li><li><p><strong>User Testing</strong>:</p><ul><li><p>Conduct user testing to gather feedback on the chatbot's performance and usability.</p></li><li><p>Make necessary adjustments based on user feedback.</p></li></ul></li></ol><h4 id="CopilotWorkflow-Phase7:Deployment">Phase 7: Deployment</h4><ol start="1"><li><p><strong>Deploy the Chatbot</strong>:</p><ul><li><p>Finalize and deploy the chatbot within the eConestoga portal.</p></li><li><p>Ensure all integrations and data connections are active and functioning correctly.</p></li></ul></li><li><p><strong>Launch</strong>:</p><ul><li><p>Announce the availability of the chatbot to users.</p></li><li><p>Provide guidance on how to interact with the chatbot.</p></li></ul></li></ol><h4 id="CopilotWorkflow-Phase8:MonitoringandMaintenance">Phase 8: Monitoring and Maintenance</h4><ol start="1"><li><p><strong>Monitor Performance</strong>:</p><ul><li><p>Use analytics tools to track chatbot usage and performance.</p></li><li><p>Monitor user interactions to identify areas for improvement.</p></li></ul></li><li><p><strong>Regular Updates</strong>:</p><ul><li><p>Update datasets regularly to keep information current.</p></li><li><p>Continuously refine the NLU model based on new data and user feedback.</p></li></ul></li><li><p><strong>Ongoing Maintenance</strong>:</p><ul><li><p>Address any technical issues promptly.</p></li><li><p>Enhance the chatbot's capabilities over time to better serve user needs.</p></li></ul></li></ol><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1157955604/1158250512.png">image-20240606-191157.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:25</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : Initial Architecture Diagram</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="S24-INDEX_1249640453.html">S24-INDEX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tech-Stack_1178992716.html">Tech Stack</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : Initial Architecture Diagram
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Diego Andres Bolanos Osejo (Unlicensed)</span> on Jun 21, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>The architecture for fine-tuning and deploying an LLM several stages:</p><ol start="1"><li><p><strong>Data Ingestion and Storage</strong></p></li><li><p><strong>Compute Resources for Training</strong></p></li><li><p><strong>Model Fine-Tuning</strong></p></li><li><p><strong>Model Deployment</strong></p></li><li><p><strong>Monitoring and Logging</strong></p></li></ol><p><strong>Architecture Diagram</strong></p><p>Here's the architecture diagram with each component and their interactions:</p><span class="confluence-embedded-file-wrapper image-left-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-left" width="618" loading="lazy" src="attachments/1185284109/1185644572.jpeg?width=618" data-image-src="attachments/1185284109/1185644572.jpeg" data-height="353" data-width="624" data-unresolved-comment-count="0" data-linked-resource-id="1185644572" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="att_1_for_1185284109.jpeg" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="1185284109" data-linked-resource-container-version="1" data-media-id="225da30d-be5b-416f-bfe6-702cad101e11" data-media-type="file"></span><p><strong>Detailed Description of Each Component</strong></p><p><strong>Data Ingestion and Storage</strong></p><ul><li><p><strong>Azure Blob Storage</strong>: Stores the large datasets required for training and fine-tuning the LLM.</p></li><li><p><strong>Data Preprocessing</strong>: Initial data cleaning and transformation tasks, potentially handled by Azure Databricks or local scripts.</p></li></ul><p><strong>Compute Resources for Training</strong></p><ul><li><p><strong>Azure ML Compute Cluster</strong>: Provides scalable compute resources, including GPU instances, necessary for training the model.</p></li><li><p><strong>VMs and GPU Instances (N-Series)</strong>: High-performance virtual machines configured for deep learning tasks.</p></li></ul><p><strong>Model Selection and Fine-Tuning</strong></p><p><strong>Azure Machine Learning (Azure ML)</strong>: Orchestrates the training process, manages experiments, tracks metrics, and handles the fine-tuning of the LLM using the data from Blob Storage and the compute cluster.</p><p><strong>Model Deployment</strong></p><ul><li><p><strong>Azure ML Endpoints</strong>: Deploys the fine-tuned model as an API endpoint, making it accessible for predictions and interactions.</p></li><li><p><strong>Azure Kubernetes Service (AKS)</strong>: Optionally used for deploying the model in a containerized environment for better scalability and management.</p></li><li><p><strong>Azure Functions</strong>: Optionally used for lightweight, serverless model deployment.</p></li></ul><p><strong>Monitoring and Logging</strong></p><ul><li><p><strong>Azure Monitor</strong>: Tracks the health and performance of compute resources.</p></li><li><p><strong>Azure Application Insights</strong>: Collects and analyzes telemetry data from the deployed model.</p></li><li><p><strong>Azure ML Metrics</strong>: Monitors and logs model training performance and metrics.</p></li></ul><p /><p><strong>Deployment Plan</strong></p><p>To ensure a smooth and effective deployment, </p><p><strong>Step 1: Set Up the Environment</strong></p><ol start="1"><li><p><strong>Azure Subscription</strong>: Ensure you have an active Azure subscription.</p></li><li><p><strong>Azure ML Workspace</strong>: Create a workspace in Azure ML to organize and manage ML resources.</p></li></ol><p><strong>Step 2: Prepare Data</strong></p><ol start="1"><li><p><strong>Data Upload</strong>: Upload the training, validation, and test data to Azure Blob Storage.</p></li><li><p><strong>Data Preprocessing</strong>: Use Azure Databricks or local scripts to preprocess and prepare the data for training.</p></li></ol><p><strong>Step 3: Configure Compute Resources</strong></p><ol start="1"><li><p><strong>Provision Compute Cluster</strong>: Set up an Azure ML compute cluster with GPU instances for training.</p></li><li><p><strong>Configure VM Instances</strong>: Select and configure appropriate N-Series VMs based on the model’s requirements.</p></li></ol><p><strong>Step 4: Fine-Tune the Model</strong></p><ol start="1"><li><p><strong>Set Up Training Script</strong>: Develop or modify a script to fine-tune the LLM using the Azure ML SDK or Databricks.</p></li><li><p><strong>Run Training</strong>: Execute the training script and monitor progress through Azure ML.</p></li><li><p><strong>Experiment Tracking</strong>: Use Azure ML’s experiment tracking to log hyperparameters and performance metrics.</p></li></ol><p><strong>Step 5: Deploy the Model</strong></p><ol start="1"><li><p><strong>Deploy to Azure ML Endpoint</strong>: Package the trained model and deploy it to an Azure ML endpoint.</p></li><li><p><strong>Containerize with AKS</strong> (Optional): Use Azure Kubernetes Service to deploy the model in a container for scalable access.</p></li><li><p><strong>Deploy with Azure Functions</strong> (Optional): Use Azure Functions for a serverless deployment option if lightweight, on-demand execution is needed.</p></li></ol><p><strong>Step 6: Set Up Monitoring</strong></p><ol start="1"><li><p><strong>Configure Azure Monitor</strong>: Set up monitoring for compute resource usage and performance.</p></li><li><p><strong>Application Insights</strong>: Implement Application Insights to track usage and performance of the deployed model.</p></li><li><p><strong>Log Training Metrics</strong>: Ensure all relevant training metrics are logged and analyzed.</p></li></ol><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1185284109/1185644572.jpeg">att_1_for_1185284109.jpeg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1185284109/1185546270.png">Tech Stack Diagrams (3).png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:25</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

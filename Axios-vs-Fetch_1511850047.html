@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : Axios vs Fetch</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="F24-INDEX_1512046593.html">F24-INDEX</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : Axios vs Fetch
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Paras Rupani</span> on Dec 11, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>Axios:</strong> An HTTP client that simplifies handling HTTP requests with automatic JSON parsing, built-in support for request cancellation and timeouts, and interceptors for modifying requests and responses.</p><ul><li><p>Axios API Documentation: <a class="external-link" data-card-appearance="inline" href="https://axios-http.com/docs/api_intro" rel="nofollow">https://axios-http.com/docs/api_intro</a> </p></li></ul><p><strong>Fetch:</strong> A native browser API offering basic functionality for making HTTP requests, requiring manual handling of JSON parsing, error management, and additional logic for advanced features like request cancellation or timeouts.</p><ul><li><p>Fetch API Documentation: <a class="external-link" data-card-appearance="inline" href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" rel="nofollow">https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API</a> </p></li></ul><p /><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="0bfb19b9-f1cd-4266-823e-a5cf055a29ad" class="confluenceTable"><tbody><tr><td class="confluenceTd"><p>Aspect</p></td><td class="confluenceTd"><p>Axios</p></td><td class="confluenceTd"><p>Fetch</p></td></tr><tr><td class="confluenceTd"><p>Request Handling</p></td><td class="confluenceTd"><p>Automatically parses JSON, supports request cancellation and timeouts.</p></td><td class="confluenceTd"><p>Requires manual JSON parsing, no built-in support for cancellation or timeouts.</p></td></tr><tr><td class="confluenceTd"><p>Error Handling</p></td><td class="confluenceTd"><p>Rejects on network errors; can handle HTTP errors directly in .then().</p></td><td class="confluenceTd"><p>Rejects on network failure only; manual handling of HTTP errors (e.g., 404, 500).</p></td></tr><tr><td class="confluenceTd"><p>Performance Impact</p></td><td class="confluenceTd"><p>Adds an external dependency, increasing bundle size slightly.</p></td><td class="confluenceTd"><p>Native browser API, lightweight, does not add extra dependencies.</p></td></tr><tr><td class="confluenceTd"><p>Cross-Browser Compatibility</p></td><td class="confluenceTd"><p>Works across all modern browsers and IE11.</p></td><td class="confluenceTd"><p>Not supported in Internet Explorer (requires polyfill).</p></td></tr><tr><td class="confluenceTd"><p>Request Customization</p></td><td class="confluenceTd"><p>Supports interceptors for modifying requests/responses (e.g., auth tokens, logging).</p></td><td class="confluenceTd"><p>No built-in support for interceptors; customization needs to be handled manually.</p></td></tr><tr><td class="confluenceTd"><p>Scalability</p></td><td class="confluenceTd"><p>More scalable with features like interceptors, timeouts, and advanced error handling.</p></td><td class="confluenceTd"><p>Suitable for simple use cases, but can become cumbersome with added complexity.</p></td></tr><tr><td class="confluenceTd"><p>Request/Response Modifications</p></td><td class="confluenceTd"><p>Supports request and response transformations.</p></td><td class="confluenceTd"><p>Requires manual implementation of transformations.</p></td></tr><tr><td class="confluenceTd"><p>Request Cancellation</p></td><td class="confluenceTd"><p>Supports request cancellation via cancel tokens.</p></td><td class="confluenceTd"><p>Does not support request cancellation natively.</p></td></tr><tr><td class="confluenceTd"><p>Time Management</p></td><td class="confluenceTd"><p>Allows setting timeouts for requests.</p></td><td class="confluenceTd"><p>No built-in support for timeouts; requires manual handling.</p></td></tr><tr><td class="confluenceTd"><p>Use Case</p></td><td class="confluenceTd"><p>Best for complex or large-scale applications requiring advanced features (e.g., logging, retries, cancellations).</p></td><td class="confluenceTd"><p>Suitable for simpler applications or if you want minimal dependencies and lightweight requests.</p></td></tr></tbody></table></div><p>We chose Axios for our React application because it simplifies data handling with automatic JSON parsing and error management, ensuring a smooth user experience. It offers powerful features like request cancellation and timeouts, making it ideal for handling multiple, potentially long-running requests. Additionally, Axios supports interceptors, which will help us manage authentication tokens and logging as the application scales.</p><p>References:<br/><a class="external-link" data-card-appearance="inline" href="https://medium.com/@johnnyJK/axios-vs-fetch-api-selecting-the-right-tool-for-http-requests-ecb14e39e285" rel="nofollow">https://medium.com/@johnnyJK/axios-vs-fetch-api-selecting-the-right-tool-for-http-requests-ecb14e39e285</a> </p><p><a class="external-link" data-card-appearance="inline" href="https://stackoverflow.com/questions/40844297/what-is-difference-between-axios-and-fetch" rel="nofollow">https://stackoverflow.com/questions/40844297/what-is-difference-between-axios-and-fetch</a> </p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:25</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

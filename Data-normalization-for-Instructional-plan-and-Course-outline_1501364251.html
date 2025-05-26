@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : Data normalization for Instructional plan and Course outline</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="F24-INDEX_1512046593.html">F24-INDEX</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : Data normalization for Instructional plan and Course outline
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jongeon</span>, last modified on Dec 10, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This semester, we have decided to improve the functionality of our chatbot by training it with additional user data. The data to be used for training includes the <strong>instructional plan</strong> and <strong>course outline</strong>, and we have chosen to convert this data into JSON format for effective learning.</p><h3 id="DatanormalizationforInstructionalplanandCourseoutline-WhyUseJSONforTraining"><strong>Why Use JSON for Training</strong></h3><p><span class="inline-comment-marker" data-ref="116d9965-3ed6-41e3-8d05-a8dfee9569bd">JSON</span> (JavaScript Object Notation) is a format well-suited for structuring and storing data, consisting of a dictionary structure with key-value pairs. It offers several advantages:</p><ol start="1"><li><p><strong>Readability and Compatibility</strong><br/>JSON is easy for humans to read and understand while being compatible with most programming languages, making data processing and utilization more accessible.</p></li><li><p><strong>Efficient Data Handling</strong><br/>JSON’s structured format allows for efficient searching and extraction of relevant data, enabling the chatbot to provide accurate information promptly.</p></li><li><p><strong>Flexibility and Scalability</strong><br/>JSON format can be easily extended by adding new key-value pairs or modifying existing data, making it ideal for updating training data as needed.</p></li></ol><p>By adopting the JSON format, we can systematically perform data training, storage, and utilization.</p><h3 id="DatanormalizationforInstructionalplanandCourseoutline-ImportanceofKey-ValueSettings"><strong>Importance of Key-Value Settings</strong></h3><p>In JSON, keys and values are critical elements that determine data retrieval and training performance. Keys should represent unique identifiers for the data, while values should contain specific and clear information associated with the keys.<br/>For instance, using ambiguous or duplicate keys can confuse the chatbot about which value to return, potentially degrading its performance.</p><h3 id="DatanormalizationforInstructionalplanandCourseoutline-KeyPrinciplesofDataNormalization"><strong>Key Principles of Data Normalization</strong></h3><p>Data normalization involves structuring data to reduce redundancy and maintain consistency within a database. This process is vital for maximizing chatbot performance. The key principles include:</p><ol start="1"><li><p><strong>Elimination of Redundancy</strong><br/>Ensure the same information is not stored in multiple places to improve data retrieval speed and reduce the possibility of errors.</p></li><li><p><strong>Structured Key Settings</strong><br/>Use specific and intuitive keys to clarify the context of the data. For example, “Assignment Due Date” is more informative than just “Due Date.”</p></li><li><p><strong>Consistency in Values</strong><br/>Values should be consistently formatted to make them easily interpretable by the chatbot. For instance, dates should follow the same format (e.g., YYYY-MM-DD), and text should be grammatically correct.</p></li><li><p><strong>Removal of Unnecessary Data</strong><br/>Exclude data that is not relevant for training to enhance both chatbot performance and data efficiency.</p></li></ol><h2 id="DatanormalizationforInstructionalplanandCourseoutline-ExampleofaJSONfileformat:">Example of a JSON file format:</h2><p>Here is the <strong>instructional plan</strong> example.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;Data Structures&quot;: [
+        {
+            &quot;Academic Term&quot;: &quot;23S&quot;,
+            &quot;Course&quot;: &quot;Data Structures&quot;,
+            &quot;Code&quot;: &quot;SENG1050&quot;,
+            &quot;Section&quot;: &quot;1&quot;,
+            &quot;Course Delivery&quot;: &quot;Hybrid&quot;,
+            &quot;Start Date&quot;: &quot;2023.5.5. 12:00:00&quot;,
+            &quot;End Date&quot;: &quot;2023.8.19. 12:00:00&quot;,
+            &quot;Drop Deadline&quot;: &quot;2023.7.16. 12:00:00&quot;,
+            &quot;Course Outcomes&quot;: &quot;1: Explain why data structures are important to software development; 2: Implement the basic linked list object; 3: Implement more advanced linked lists; 4: Implement queues and stacks; 5: Implement circular data structures; 6: Implement hash tables; 7: Explain tree structures; 8: Evaluate the efficiency of an algorithm; 9: Use common algorithms to enhance software development; 10: Use the C++ Standard Template Library to facilitate the storage of data; 11: Use best practices to effectively produce quality software.&quot;,
+            &quot;Passing Grade&quot;: &quot;55%&quot;,
+            &quot;Faculty Name&quot;: &quot;Madhan Chandrasekaran, Tushar Upadhyay&quot;,
+            &quot;Faculty Email&quot;: &quot;mchandrasekaran@conestogac.on.ca, Tupadhyay1@conestogac.on.ca&quot;,
+            &quot;Assignments Total Weight&quot;: &quot;40%&quot;,
+            &quot;Assignments&quot;: &quot;Midterm Exam (20.00%), Final Exam (20.00%)&quot;,
+            &quot;Quizzes Total Weight&quot;: &quot;33%&quot;,
+            &quot;Quizzes&quot;: &quot;Major #1 (11.00%), Major #2 (11.00%), Major #3 (11.00%)&quot;,
+            &quot;Exams Total Weight&quot;: &quot;16%&quot;,
+            &quot;Exams&quot;: &quot;Focused #1 (4.00%), Focused #2 (4.00%), Focused #3 (4.00%), Focused #4 (4.00%)&quot;,
+            &quot;Course Schedule&quot;: {
+                &quot;Week 1&quot;: &quot;Instructional Plan, Course Expectations, Review of Structs, Dynamic Memory Allocation. Unit Outcomes: 1.1: Use the struct capability in C. 1.2: Explain the nature of member data of a given data structure. 1.3: Create key methods that will be useful to manipulate data structures. 11.1: Use best practices to effectively produce quality software.&quot;,
+                &quot;Week 2&quot;: &quot;Simple Linked Lists. Unit Outcomes: 2.1: Explain the importance of a simple data structure such as a linked list. 2.2: Implement a linked list using dynamic memory allocation. 8.1: Identify various established common algorithms.&quot;,
+                &quot;Week 3&quot;: &quot;Doubly-Linked and Sorted Lists. Unit Outcomes: 2.2: Implement a linked list using dynamic memory allocation. 3.1: Implement a doubly-linked list. 3.2: Implement a sorted linked list. 3.3: Explain the usefulness of double-linked and sorted linked lists for handling data efficiently.&quot;,
+                &quot;Week 4&quot;: &quot;Reinforce the concepts covered so far. Unit Outcomes: 4.1: Implement a stack. 4.2: Implement a queue. 4.3: Explain the differences between a stack and a queue. 5.1: Implement circular linked lists. 5.2: Implement circular arrays. 5.3: Explain when circular data structures are best used.&quot;,
+                &quot;Week 5&quot;: &quot;Hash Tables. Unit Outcomes: 6.1: Implement a hash table. 6.2: Explain the difference in efficiency between hash tables and other data structures.&quot;,
+                &quot;Week 6&quot;: &quot;Circular Data Structures, Stacks, and Queues. Unit Outcomes: 11.1: Use best practices to effectively produce quality software.&quot;,
+                &quot;Week 7&quot;: &quot;Reinforce the concepts covered so far. Unit Outcomes: 5.1: Implement circular linked lists. 5.2: Implement circular arrays. 5.3: Explain when circular data structures are best used.&quot;,
+                &quot;Week 8&quot;: &quot;Student Success Week. Unit Outcomes: None.&quot;,
+                &quot;Week 9&quot;: &quot;STL Vectors. Unit Outcomes: 10.1: Use STL templates. 10.2: Evaluate appropriate uses of the STL. 11.1: Use best practices to effectively produce quality software.&quot;,
+                &quot;Week 10&quot;: &quot;STL Lists and Deques, STL Stack and Queues and more about Iterators. Unit Outcomes: 10.1: Use STL templates. 10.2: Evaluate appropriate uses of the STL.&quot;,
+                &quot;Week 11&quot;: &quot;STL Associative Containers. Unit Outcomes: 10.1: Use STL templates. 10.2: Evaluate appropriate uses of the STL.&quot;,
+                &quot;Week 12&quot;: &quot;STL Algorithms. Unit Outcomes: 10.1: Use STL templates. 10.2: Evaluate appropriate uses of the STL. 11.1: Use best practices to effectively produce quality software.&quot;,
+                &quot;Week 13&quot;: &quot;Algorithm Efficiency. Unit Outcomes: 9.1: Analyze algorithm efficiency. 9.2: Evaluate algorithms according to efficiency. 11.1: Use best practices to effectively produce quality software.&quot;,
+                &quot;Week 14&quot;: &quot;Other Data Structures, Recaps of Very Important Points PDFs from the C course. Unit Outcomes: 7.1: Explain how a tree works. 7.2: Explain how different types of trees have different uses and benefits. 8.1: Identify various established common algorithms. 9.2: Evaluate algorithms according to efficiency. 11.1: Use best practices to effectively produce quality software.&quot;,
+                &quot;Week 15&quot;: &quot;Final Exam Week!. Unit Outcomes: 7.1: Explain how a tree works. 7.2: Explain how different types of trees have different uses and benefits. 8.1: Identify various established common algorithms. 9.1: Analyze algorithm efficiency. 9.2: Evaluate algorithms according to efficiency. 10.1: Use STL templates. 10.2: Evaluate appropriate uses of the STL. 11.1: Use best practices to effectively produce quality software.&quot;
+            }
+        }
+    ]
+}</pre>
+</div></div><p /><p>Here is the <strong>course outline</strong> example.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;Data Structures&quot;: [
+        {
+			&quot;Course&quot;: &quot;Data Structures&quot;,
+			&quot;Code&quot;: &quot;SENG1050 (100)&quot;,
+			&quot;Version&quot;: &quot;2022-2023&quot;,
+			&quot;Total Hours&quot;: &quot;56&quot;,
+			&quot;Credits&quot;: &quot;4&quot;,
+			&quot;PreRequisite&quot;: &quot;SENG1000 (100) C/C++ Programming or SENG1005 (100) C Programming I&quot;,
+			&quot;CoRequisite&quot;: &quot;None&quot;,
+			&quot;Course Description&quot;: &quot;This course examines using and implementing advanced data structures to improve performance and storage efficiency. Common algorithms for structures, such as linked lists, queues, and hash tables, are discussed.&quot;,
+			&quot;PLAR Eligible&quot;: &quot;Yes&quot;,
+			&quot;Eligible for Supplemental&quot;: &quot;Yes (See eligibility requirements in the program handbook)&quot;,
+			&quot;Resources&quot;: &quot;None&quot;,
+			&quot;Course Outcomes&quot;: &quot;1. Explain why data structures are important to software development. 2. Implement the basic linked list object. 3. Implement more advanced linked lists. 4. Implement queues and stacks. 5. Implement circular data structures. 6. Implement hash tables. 7. Explain tree structures. 8. Evaluate the efficiency of an algorithm. 9. Use common algorithms to enhance software development. 10. Use the C++ Standard Template Library to facilitate the storage of data. 11. Use best practices to effectively produce quality software.&quot;,
+			&quot;Unit Outcomes&quot;: &quot;1.0 Data Structure Basics. 1.1 Use the struct capability in C. 1.2 Explain the nature of member data of a given data structure. 1.3 Create key methods that will be useful to manipulate data structures. 2.0 Simple Linked Lists. 2.1 Explain the importance of a simple data structure such as a linked list. 2.2 Implement a linked list using dynamic memory allocation. 3.0 Other Linked Lists. 3.1 Implement a doubly-linked list. 3.2 Implement a sorted linked list. 3.3 Explain the usefulness of double-linked and sorted linked lists for handling data efficiently. 4.0 Stacks and Queues. 4.1 Implement a stack. 4.2 Implement a queue. 4.3 Explain the differences between a stack and a queue. 5.0 Circular Data Structures. 5.1 Implement circular linked lists. 5.2 Implement circular arrays. 5.3 Explain when circular data structures are best used. 6.0 Hash Tables. 6.1 Implement a hash table. 6.2 Explain the difference in efficiency between hash tables and other data structures. 7.0 Tree Structures. 7.1 Explain how a tree works. 7.2 Explain how different types of trees have different uses and benefits. 8.0 Common Algorithms. 8.1 Identify various established common algorithms. 9.0 Algorithm Efficiency. 9.1 Analyze algorithm efficiency. 9.2 Evaluate algorithms according to efficiency. 10.0 C++ Standard Template Library. 10.1 Use STL templates. 10.2 Evaluate appropriate uses of the STL. 11.0 Best Practices. 11.1 Use best practices to effectively produce quality software.&quot;,
+			&quot;Evaluation&quot;: &quot;1. Problem Analysis: 33% (3 analyses). 2. Problem Analysis: 16% (4 analyses). 3. eConestoga Quiz(zes): 6% (10 quizzes). 4. Mid-Term Exam(s): 20%. 5. Final Exam: 20%. 6. Professionalism: 5%. Minimum passing grade: 55%&quot;,
+			&quot;Web-based Tools&quot;: &quot;This course may be using web-based services with data centres outside of Canada. Students may be expected to complete assessments where information is transmitted outside of Canada. Students who do not wish to submit their information to other countries have the right to opt-out. It is the responsibility of the student to notify the instructor in the first week of term if they have any concerns.&quot;,
+			&quot;Notes&quot;: &quot;Software to Detect Academic Offences: Software may be used to screen assignments or invigilate exams in this course. It is the responsibility of the professor to notify students of any such technologies in advance of their use. Academic integrity is expected and required of all Conestoga students. It is a student&#39;s responsibility to maintain compliance with Conestoga&#39;s Academic Integrity Policy.&quot;,
+			&quot;Prepared by&quot;: &quot;Carlo Sgro&quot;,
+			&quot;School&quot;: &quot;Applied Computer Science &amp; IT&quot;,
+			&quot;Date&quot;: &quot;2022-03-07&quot;
+        }
+    ]
+}</pre>
+</div></div><p>We have currently downloaded the instructional Plan and Course Outline from three different programs, converted them into JSON format, and updated them to Bitbucket. The JSON format is designed with flexibility in mind, allowing modifications to accommodate additional data while maintaining compatibility with the model. This ensures the format can evolve seamlessly as the relationship between the data and the model grows.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:25</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

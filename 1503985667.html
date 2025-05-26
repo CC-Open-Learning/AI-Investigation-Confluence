@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : Raw Query for Course (PostgreSQL)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="F24-INDEX_1512046593.html">F24-INDEX</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : Raw Query for Course (PostgreSQL)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Wei Hsiang Chen</span>, last modified on Dec 10, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="RawQueryforCourse(PostgreSQL)-Whyuserawquery?">Why use raw query?</h2><p>We use a raw query in the <strong>AI_Chatbot </strong>project because it allows us to directly interact with the PostgreSQL to store crucial data. Initially, AI_Chatbot project retrieved data from a Docker-based database, but we encountered issues accessing historical data, prompting us to switch to PostgreSQL. This change enhances our ability to efficiently fetch and display chat histories, course information, and responses on the frontend.</p><h2 id="RawQueryforCourse(PostgreSQL)-CreatetablesonPostgre"><strong>Create tables on Postgre</strong></h2><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">CREATE EXTENSION IF NOT EXISTS &quot;uuid-ossp&quot;;
+ 
+CREATE TABLE IF NOT EXISTS public.chat
+(
+    &quot;chatHistoryId&quot; uuid NOT NULL DEFAULT uuid_generate_v4(),
+    &quot;courseCourseCode&quot; character varying COLLATE pg_catalog.&quot;default&quot;,
+    CONSTRAINT &quot;PK_84feb2fc5b8bd1102218b8dc8aa&quot; PRIMARY KEY (&quot;chatHistoryId&quot;)
+);
+ 
+CREATE TABLE IF NOT EXISTS public.course
+(
+    &quot;courseCode&quot; character varying COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    name character varying COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    description character varying COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    icon character varying COLLATE pg_catalog.&quot;default&quot;,
+    CONSTRAINT &quot;PK_0ebbb44f3bf6503c64048a147f9&quot; PRIMARY KEY (&quot;courseCode&quot;)
+);
+ 
+CREATE TABLE IF NOT EXISTS public.message
+(
+    &quot;messageId&quot; serial NOT NULL,
+    &quot;isLLM&quot; boolean NOT NULL,
+    &quot;messageType&quot; character varying COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    text character varying COLLATE pg_catalog.&quot;default&quot; NOT NULL,
+    source text COLLATE pg_catalog.&quot;default&quot;,
+    title character varying COLLATE pg_catalog.&quot;default&quot;,
+    &quot;chatChatHistoryId&quot; uuid,
+    CONSTRAINT &quot;PK_b664c8ae63d634326ce5896cecc&quot; PRIMARY KEY (&quot;messageId&quot;)
+);
+ 
+ALTER TABLE IF EXISTS public.chat
+    ADD CONSTRAINT &quot;FK_c0586b497209cba64f807dd31f6&quot; FOREIGN KEY (&quot;courseCourseCode&quot;)
+    REFERENCES public.course (&quot;courseCode&quot;) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION;
+ 
+ALTER TABLE IF EXISTS public.message
+    ADD CONSTRAINT &quot;FK_344a71826abceba5ce320394516&quot; FOREIGN KEY (&quot;chatChatHistoryId&quot;)
+    REFERENCES public.chat (&quot;chatHistoryId&quot;) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION;</pre>
+</div></div><p /><h2 id="RawQueryforCourse(PostgreSQL)-InsertseeddatatotheCoursetable:">Insert seed data to the Course table:</h2><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">INSERT INTO course (&quot;courseCode&quot;, &quot;name&quot;, &quot;description&quot;, &quot;icon&quot;)
+VALUES 
+    (&#39;MGMT8680&#39;, &#39;Information Technology Operations and Project Management (2020)&#39;, &#39;IT organizations execute practices based on defined processes to ensure consistent service delivery. Projects must be planned and implemented in a well-organized manner to maximize success. This course introduces structured IT operations through ITIL, the most commonly used system in IT management. As well, students will learn how to manage an IT project from concept to conclusion using industry standard project management techniques.&#39;, &#39;fa-solid fa-bars-progress&#39;),
+    (&#39;CSE-103&#39;, &#39;Introduction to Data Structures and Algorithms&#39;, &#39;This course is an introduction to data structures and algorithms.&#39;, &#39;fa-solid fa-bars-progress&#39;),
+    (&#39;CSE-102&#39;, &#39;Introduction to Software Engineering&#39;, &#39;This course is an introduction to software engineering.&#39;, &#39;fa-solid fa-bars-progress&#39;);</pre>
+</div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:25</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

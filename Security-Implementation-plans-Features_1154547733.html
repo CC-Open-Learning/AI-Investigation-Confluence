@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : Security Implementation plans Features</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="S24-INDEX_1249640453.html">S24-INDEX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Microsoft-Co-pilot-Studio_1267302404.html">Microsoft Co-pilot Studio</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : Security Implementation plans Features
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Aerish Gaba (Unlicensed)</span>, last modified on Jun 06, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Power Platform has an extensive set of <a class="external-link" href="https://learn.microsoft.com/en-us/power-platform/admin/prevent-data-loss" rel="nofollow">Data Loss Prevention features</a> (DLP) to help you manage the security of your data. Learn how to <a class="external-link" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention" rel="nofollow">configure Data Loss Prevention policies for copilots</a> in your organization.</p><p>To further govern and secure Copilot Studio using generative AI features in your organization, you can:</p><ul><li><p>Disable copilot publishing:</p><ul><li><p>Admin can use the Power Platform admin center to turn off the ability to publish copilots with generative answers and actions for your tenant.</p></li><li><p>Your admin can disable Copilot for your organization by creating a support request.</p></li></ul></li><li><p><a class="external-link" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/manage-data-movement-outside-us" rel="nofollow">Disable data movement across geographic locations</a> for Copilot Studio generative AI features outside the United States.</p></li><li><p><a class="external-link" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/copilot-conversational-plugins" rel="nofollow">Enable Copilot Studio conversational plugins</a>.</p></li></ul><p><strong>Data Loss Prevention (DLP) for Co-pilots </strong></p><p>Organizational data is the most important asset administrators are responsible for safeguarding. The ability to build automation to use that data is a large part of their company's success.</p><p>You can rapidly build and roll out your high-value copilots for your end users. You can connect your copilots with many data sources and services. Some of these sources and services might be external, third-party services, and might even include social networks.</p><p>It is easy to overlook the potential for exposure. This sort of exposure can result from data leakage or connections to services and audiences that shouldn't have access to the data.</p><p>Administrators can govern copilots in your organization using data loss prevention (DLP) policies with existing and Copilot Studio connectors. DLP policies are <strong>created in the </strong><a class="external-link" href="https://admin.powerplatform.microsoft.com/" rel="nofollow"><strong>Power Platform admin center</strong></a>. To create a DLP policy, you <strong>need to be a </strong><a class="external-link" href="https://learn.microsoft.com/en-us/power-platform/admin/use-service-admin-role-manage-tenant" rel="nofollow"><strong>tenant admin</strong></a><strong> or have the </strong><a class="external-link" href="https://learn.microsoft.com/en-us/power-platform/admin/environments-overview#environment-permissions" rel="nofollow"><strong>Environment Admin role</strong></a><strong>.</strong></p><p>This can be done by admins by changing how new connectors are governed by updating DLP policy to include.</p><p><em><strong><u>FYI</u></strong><u> - {A Power Platform connector allows the service to talk to Microsoft Power Automate, Microsoft Power Apps, and Azure Logic Apps. It provides a way for users to connect their accounts and leverage a set of prebuilt actions and triggers to build their apps and workflows.}</u></em></p><p><strong><u>Connectors</u></strong> - Connectors, at their most basic level, are strongly typed representations of restful, application programming interfaces, also known as APIs. For example, the Power Platform API provides several operations related to functionality in Power Platform admin center. Connectors enables you to connect apps, data, and devices in the cloud. Examples of popular connectors include Salesforce, Office 365, Twitter (X), Dropbox, Google services, and more. </p><p>Connectors allow the underlying service to talk to <a class="external-link" href="https://flow.microsoft.com/" rel="nofollow">Microsoft Power Automate</a>, <a class="external-link" href="https://powerapps.microsoft.com/" rel="nofollow">Microsoft Power Apps</a>, and <a class="external-link" href="https://azure.microsoft.com/services/logic-apps" rel="nofollow">Azure Logic Apps</a>.</p><p>There are two types of connectors:</p><ul><li><p><strong>Prebuilt</strong>: Predefined connectors that can be used without any modifications. They address automating commonly used business process scenarios.</p></li><li><p><strong>Custom</strong>: Function-based connectors that you build to support your need.</p></li></ul><p>Connectors under DLP are classified according to their data usage or also called <strong>Data Groups</strong>:</p><ul><li><p><strong><span class="inline-comment-marker" data-ref="e5132ce9-f078-43e7-89bf-0aeadbdf88a1">Business</span></strong></p></li><li><p><strong><span class="inline-comment-marker" data-ref="aedb50f2-c544-41bb-912c-e60f10f7ae1c">Non-business</span></strong></p></li><li><p><strong><span class="inline-comment-marker" data-ref="c8fce52a-bfdd-4324-8052-be9c22c7e7ca">Blocked</span></strong></p></li></ul><p>Data verse Native &amp; Data verse legacy connections are treated as DLP enforcement.</p><ul><li><p>Initially, the <strong>Non-Business</strong> group is the default group for new connectors and all services. You can <a class="external-link" href="https://learn.microsoft.com/en-us/power-platform/admin/prevent-data-loss#change-the-default-data-group" rel="nofollow">change the default data group</a> to the <strong>Business</strong> or <strong>Blocked</strong> data group</p></li><li><p>Any new services that are added to apps will be placed in the designated default group. For this reason, it is recommend to keep <strong>Non-Business</strong> as the default group, and manually add services into the <strong>Business</strong> or <strong>Blocked</strong> group after organization has evaluated the impact of allowing business data to be shared with the new service.</p></li></ul><p><strong>Important:</strong></p><ol start="1"><li><p><strong>Admins can change the data group of the connectors and make it accessible/inaccessible for a particular account/user.</strong></p></li><li><p><strong>All connectors are blockable except: Core Microsoft platform functionality like - Data verse approval, notifications and Core office customization scenarios like Microsoft enterprise plan standard connections.</strong></p></li><li><p><strong>Connector end-point filtering:- </strong>Allows admin to govern which specific makers can connect to when building apps, flows or chatbots. Configuration of end-point filtering with DLP policy is exclusively available to the below 6 connectors right now:-</p></li></ol><ul><li><p>HTTP</p></li><li><p>HTTP with Microsoft Entra ID (AD)</p></li><li><p>HTTP Webhook</p></li><li><p>SQL Server (includes using SQL Server Connector to access Azure Synapse data warehouse)</p></li><li><p>Azure Blob Storage</p></li><li><p>SMTP</p></li></ul><p /><p><strong>Connector configuration of Copilot studio in Power platform admin centre</strong></p><p>The following Copilot Studio connectors are available in the Power Platform admin center.</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240605-201459.png" width="513" loading="lazy" src="attachments/1154547733/1154318404.png?width=513" data-image-src="attachments/1154547733/1154318404.png" data-height="693" data-width="513" data-unresolved-comment-count="0" data-linked-resource-id="1154318404" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240605-201459.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1154547733" data-linked-resource-container-version="2" data-media-id="2a176519-268b-40ce-9074-22698f78229d" data-media-type="file"></span><p /><p><strong>These connectors can be configured for DLP as follows:</strong></p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20240605-201555.png" width="1300" loading="lazy" src="attachments/1154547733/1154252837.png?width=1300" data-image-src="attachments/1154547733/1154252837.png" data-height="1037" data-width="2488" data-unresolved-comment-count="0" data-linked-resource-id="1154252837" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20240605-201555.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1154547733" data-linked-resource-container-version="2" data-media-id="80d6079b-caa9-4d8c-a906-52d603951cd7" data-media-type="file"></span><p /><p><u>Reference links</u>:-</p><ol start="1"><li><p><a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention" rel="nofollow">https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention</a> </p></li><li><p><a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention" rel="nofollow">https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention</a> </p></li><li><p><a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention#connectors" rel="nofollow">https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention#connectors</a> </p></li><li><p><a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/power-platform/admin/dlp-connector-classification" rel="nofollow">https://learn.microsoft.com/en-us/power-platform/admin/dlp-connector-classification</a> </p></li><li><p><a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/power-platform/admin/connector-endpoint-filtering" rel="nofollow">https://learn.microsoft.com/en-us/power-platform/admin/connector-endpoint-filtering</a>  </p></li></ol><p /><p><u>Some FAQs to refer</u>:-</p><ol start="1"><li><p>Co-pilot data security and privacy - <a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/power-platform/faqs-copilot-data-security-privacy" rel="nofollow">https://learn.microsoft.com/en-us/power-platform/faqs-copilot-data-security-privacy</a> </p></li><li><p>Optional Data Sharing - <a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/power-platform/faqs-copilot-data-sharing" rel="nofollow">https://learn.microsoft.com/en-us/power-platform/faqs-copilot-data-sharing</a> </p></li></ol>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1154547733/1154318404.png">image-20240605-201459.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1154547733/1154252837.png">image-20240605-201555.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:25</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

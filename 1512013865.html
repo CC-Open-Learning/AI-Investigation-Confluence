@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : New Approach (CCchat)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="F24-INDEX_1512046593.html">F24-INDEX</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : New Approach (CCchat)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Hamna Ashraf</span>, last modified on Dec 12, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>For the F24 term, we continued building upon the previous term's code (Sprint 2024). However, changes were made to implement strict prompt boundaries for <a href="1511948363.html" data-linked-resource-id="1511948363" data-linked-resource-version="6" data-linked-resource-type="page">level 2</a> questions. </p><p>The system uses <strong>metadata filtering</strong> to identify and retrieve the most relevant documents. This ensures precise alignment of the query with the course material. </p><h2 id="NewApproach(CCchat)-DetectIntentofquery">Detect Intent of query</h2><p><strong> </strong>The chatbot detects whether the user's query is a greeting or introduction-related. If it is then predefined responses are shown to the user. (Refer to the file <code>app_noHist.py</code> for details.)</p><h2 id="NewApproach(CCchat)-QueryCategorization">Query Categorization</h2><p>Before invoking the RAG pipeline, it will be checked what type of question user has asked; Unit, Topic or Content related. Below is an explanation of the query types:</p><ul><li><p><u>Unit:</u> A unit has multiple topics. If the user wants to ask questions related to all topics in that unit e.g if they need a summary of all topics covered in that unit then it will be categorized as unit query. The question would be like “Summarize Unit 5 for me”. </p></li><li><p><u>Topic</u>: If the user has a question regarding a specific topic from a unit (e.g Unit 6 Topic 1) then the query will be categorized as a topic. However, it wouldn’t work if the unit is not mentioned. The reason is that there can be multiple units having with the same topic number like Topic 1 could exist for Unit 1, Unit 2 or Unit 3 etc. To retrieve relevant information, user must mention the unit along with the topic. </p></li></ul><p style="margin-left: 60.0px;">The query will also be categorized as topic if the user has given the topic title. The topic title must be enclosed in single quotation marks. It would look like this: Explain the topic titled 'SM Definitions'. </p><ul><li><p><u>Content:</u> Queries about other aspects of the content covered in class are categorized as content queries.</p></li></ul><p>The chatbot dynamically parses the user's query to extract <strong>unit numbers, topic numbers, </strong>or<strong> topic titles</strong> and filters the material accordingly.</p><p>After the categorization, the documents are retrieved first and further processed to get only the most relevant documents. The documents are then passed as context to invoke the RAG pipeline.</p><h2 id="NewApproach(CCchat)-ErrorHandlingandStrictBoundaries">Error Handling and Strict Boundaries</h2><p>The chatbot’s responses are strictly limited to Level 2.</p><p>When the LLM responds with any external information it mentions that the information it is providing can’t be found in context. Before displaying anything to user, the LLM response is passed through a relevance check. If the chatbot's response is based on the provided context, it is displayed to the user. Otherwise, an error message is triggered. (Refer to <code>app_noHist.py</code> for implementation details.)</p><h2 id="NewApproach(CCchat)-Chathistory">Chat history</h2><p>It is important to highlight that chat history is no longer maintained. This is because maintaining chat history is not currently a requirement. Additionally, the ChatGroq - mixtral model being used would reach the token limit after a few queries with k=12.</p><p><strong>Important Note </strong></p><p>If chat history needs to be maintained in the future, the token limit error can be avoided by reducing k (currently set to 45) and only including the last three messages as context for the next query.</p><p /><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>If the chatbot gives an error for any query, <strong>retry one more time</strong>. Still if same error is being displayed then talk to the AI team.</p></div></div><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:25</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

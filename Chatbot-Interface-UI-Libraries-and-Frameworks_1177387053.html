@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : Chatbot Interface UI Libraries and Frameworks</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="S24-INDEX_1249640453.html">S24-INDEX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tech-Stack_1178992716.html">Tech Stack</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : Chatbot Interface UI Libraries and Frameworks
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Diego Andres Bolanos Osejo (Unlicensed)</span>, last modified on Jun 18, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="ChatbotInterfaceUILibrariesandFrameworks-Streamlit">Streamlit</h2><p>Streamlit is a versatile platform designed to build, deploy, and share powerful generative AI applications. It provides a wide range of libraries within the AI ecosystem, enabling developers to create LLM-powered applications swiftly and efficiently.</p><p>Streamlit offers numerous examples of prebuilt apps on custom LLMs, showcasing its capabilities in performing various tasks. Below are some examples of functions that can be built using Streamlit:</p><h4 id="ChatbotInterfaceUILibrariesandFrameworks-LLMExampleswithStreamlit"><strong>LLM Examples with Streamlit</strong></h4><p>Streamlit supports any LLM with a Python implementation or API call, including popular open-source and closed-source models like OpenAI, LLaMa, Anthropic, PaLM, and models hosted on HuggingFace or built with Transformers.</p><ol start="1"><li><p><strong>Build a Chatbot with Custom Data Sources Powered by LlamaIndex</strong></p><ol start="1"><li><p><strong>Augment LLMs with Data Using RAG (Retrieval Augmented Generation) Pipelines</strong></p><p><strong>This process consists of two main stages:</strong></p><ul><li><p><strong>Indexing Stage:</strong> LlamaIndex prepares the knowledge base by ingesting data and converting it into Documents. It parses metadata from these documents (text, relationships, etc.) into nodes and creates queryable indices from these chunks into the Knowledge Base.</p></li><li><p><strong>Querying Stage:</strong> Relevant context is retrieved from the knowledge base to assist the model in responding to queries. This stage ensures the model can access data not included in its original training data.</p></li></ul></li></ol></li></ol><p><a class="external-link" href="https://blog.streamlit.io/build-a-chatbot-with-custom-data-sources-powered-by-llamaindex/" rel="nofollow">https://blog.streamlit.io/build-a-chatbot-with-custom-data-sources-powered-by-llamaindex/</a></p><ol start="1"><li><p><strong>Build a Chatbot Using LangChain + Streamlit</strong></p><p>LangChain is a framework that supports building AI agents for multiple functions. Below are some LangChain-supported tasks that can be integrated with Streamlit:</p><ul><li><p><strong>StreamlitChatMessageHistory:</strong> Helps LLMChain remember messages from conversations. Messages are stored in Session State across re-runs automatically.</p></li><li><p><strong>LangChain: Chat with Documents:</strong> Create a chatbot capable of answering queries by referring to custom documents.</p></li><li><p><strong>LangChain: Chat with SQL DB:</strong> Build a chatbot to communicate with your database.</p></li><li><p><strong>LangChain: Chat with Search:</strong> Develop a chatbot that can perform search operations.</p></li><li><p><strong>LangChain: Simple Feedback:</strong> A chat app that allows users to provide feedback on responses using streamlit-feedback and link to the traces in LangSmith.</p></li></ul></li></ol><p><a class="external-link" data-card-appearance="inline" href="https://github.com/langchain-ai/streamlit-agent" rel="nofollow">https://github.com/langchain-ai/streamlit-agent</a> </p><h2 id="ChatbotInterfaceUILibrariesandFrameworks-NLUX(forNaturalLanguageUserExperience)">NLUX (for Natural Language User Experience) </h2><p><strong>NLUX (Natural Language User Experience)</strong> is an open-source JavaScript and React JS library designed to integrate powerful large language models (LLMs) like ChatGPT into web applications with minimal code. This library aims to provide high-quality conversational AI interfaces that are easy and quick to use.</p><h4 id="ChatbotInterfaceUILibrariesandFrameworks-KeyFeatures:">Key Features:</h4><ul><li><p><strong>Rapid AI Chat Interface Creation:</strong> Build conversational AI interfaces in minutes.</p></li><li><p><strong>React Components &amp; Hooks:</strong> Includes <code>&lt;AiChat /&gt;</code> for UI and <code>useChatAdapter</code> for integration.</p></li><li><p><strong>LLM Adapters:</strong> Supports integration with ChatGPT, LangChain, LangServe APIs, Hugging Face, and more.</p></li><li><p><strong>Customizable Interface:</strong> Allows for extensive UI customization through theming and layout options.</p></li><li><p><strong>Zero Dependencies:</strong> Lightweight with no external UI libraries required.</p></li><li><p><strong>Streaming Output:</strong> Supports streaming responses to the UI generated by the LLM.</p></li></ul><h4 id="ChatbotInterfaceUILibrariesandFrameworks-DesignPrinciples:">Design Principles:</h4><ul><li><p><strong>Intuitive:</strong> Focuses on natural and obstacle-free user interactions.</p></li><li><p><strong>Performance-Oriented:</strong> Optimized for fast loading, rendering, and response times.</p></li><li><p><strong>Accessible:</strong> Designed to be usable by people with disabilities across various devices and environments.</p></li><li><p><strong>Developer Experience (DX):</strong> Prioritizes ease of use, understanding, and extension for developers with comprehensive documentation and support.</p></li></ul><p><a class="external-link" data-card-appearance="inline" href="https://github.com/nlkitai/nlux?tab=readme-ov-file" rel="nofollow">https://github.com/nlkitai/nlux?tab=readme-ov-file</a> </p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:25</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

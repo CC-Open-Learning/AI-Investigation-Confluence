@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : DTA(Digital Teaching Assistant) Logic Overview</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="W25-INDEX_1551106050.html">W25-INDEX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tech-Research_1583087617.html">Tech Research</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : DTA(Digital Teaching Assistant) Logic Overview
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jongeon</span>, last modified on Apr 04, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="DTA(DigitalTeachingAssistant)LogicOverview-1.WhatisDTA?">1. What is DTA?</h1><p>DTA stands for Digital Teaching Assistant - an AI-driven learning system designed to help students learn independently.</p><p>It provides:</p><ul><li><p>Structured question progression by chapters</p></li><li><p>Real-time AI evaluation of student answers</p></li><li><p>Personalized hints after incorrect attempts</p></li><li><p>Encouragement and auto-progression based on performance</p></li></ul><h1 id="DTA(DigitalTeachingAssistant)LogicOverview-2.DTALogicFlowchart">2. DTA Logic Flowchart</h1><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250403-181442.png" width="760" loading="lazy" src="attachments/1733230616/1733394446.png?width=760" data-image-src="attachments/1733230616/1733394446.png" data-height="490" data-width="1128" data-unresolved-comment-count="0" data-linked-resource-id="1733394446" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250403-181442.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1733230616" data-linked-resource-container-version="8" data-media-id="6be92ffd-83c5-4f18-9966-a93638897cbb" data-media-type="file"></span><h1 id="DTA(DigitalTeachingAssistant)LogicOverview-3.SystemComponents">3. System Components</h1><p>The DTA system is composed of the following main files/modules:</p><ol start="1"><li><p><code>app_noHist.py</code></p><ol start="1"><li><p>The FastAPI backend server that defines the DTA-related API endpoints</p></li><li><p>Handles mode switching (<code>/api/changeMode</code>), retrieves the first question (<code>/api/first_question</code>), and processes user answers (<code>/api/dta_query</code>)</p></li><li><p>Initializes a new DTA session for the selected course</p></li></ol></li><li><p><code>dta_llm_logic.py</code></p><ol start="1"><li><p>Core logic contained in the <code>DTA</code> class</p></li><li><p>Tracks learning progress (chapter &amp; question)</p></li><li><p>Uses AI to evaluate answers and generate hints</p></li><li><p>Manages transitions between questions and chapters</p></li></ol></li><li><p> <code>dta_query.py</code></p><ol start="1"><li><p>Sends prompts to Groq's LLM using LangChain (<code>langchain_groq</code>)</p></li><li><p>Routes either evaluation prompts or hint prompts to the AI via <code>query_ai()</code></p></li></ol></li><li><p><code>dta_prompt.py</code></p><ol start="1"><li><p>Generates prompt strings for AI evaluation:</p><ol start="1"><li><p><code>prompt_evaluation()</code>: strict true/false judgment based on functional/conceptual accuracy</p></li><li><p><code>prompt_hint()</code>: provides guidance without revealing the answer</p></li></ol></li></ol></li><li><p><code>dta_questions.py</code></p><ol start="1"><li><p>Stores course-specific questions as structured dictionaries</p></li><li><p>Organized by chapters and supports both code/text questions (<code>answer_type</code>)</p></li></ol></li></ol><p /><h1 id="DTA(DigitalTeachingAssistant)LogicOverview-4.HowDTAWorks">4. How DTA Works</h1><h3 id="DTA(DigitalTeachingAssistant)LogicOverview-ModeActivation">Mode Activation</h3><ul><li><p>When the frontend triggers <code>&quot;DTA Mode ON&quot;</code> (via button), <code>/api/changeMode</code> initializes a new DTA instance using the selected course</p></li></ul><h3 id="DTA(DigitalTeachingAssistant)LogicOverview-FirstQuestion">First Question</h3><ul><li><p><code>/api/first_question</code> returns the current question based on the chapter and position</p></li></ul><h3 id="DTA(DigitalTeachingAssistant)LogicOverview-AnswerSubmission">Answer Submission</h3><ul><li><p>The user submits an answer to <code>/api/dta_query</code></p></li><li><p>The logic runs:</p><ul><li><p><code>check_answer()</code> → generates prompt using <code>prompt_evaluation()</code> and sends to Groq AI</p></li><li><p>If correct, returns a success message and proceeds to the next question</p></li><li><p>If incorrect, generates a hint using <code>prompt_hint()</code> and returns it</p><ul><li><p>If the user fails to answer correctly after 5 attempts, provide a direct hint.</p></li></ul></li></ul></li></ul><h3 id="DTA(DigitalTeachingAssistant)LogicOverview-Completion">Completion</h3><ul><li><p>Once all chapters and questions are finished, a congratulatory message is shown:</p><p><code>&quot;🎉 Congratulations! You have completed all the questions.&quot;</code></p></li></ul><p /><h1 id="DTA(DigitalTeachingAssistant)LogicOverview-5.Exampleimages">5. Example images</h1><ul><li><p>DTA Mode change button</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250404-174907.png" width="500" loading="lazy" src="attachments/1733230616/1735065654.png?width=500" data-image-src="attachments/1733230616/1735065654.png" data-height="156" data-width="787" data-unresolved-comment-count="0" data-linked-resource-id="1735065654" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250404-174907.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1733230616" data-linked-resource-container-version="8" data-media-id="ac8fbe67-b572-49db-af33-a37eed925d0b" data-media-type="file"></span><ul><li><p>Start DTA button</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250404-175005.png" width="500" loading="lazy" src="attachments/1733230616/1735065660.png?width=500" data-image-src="attachments/1733230616/1735065660.png" data-height="379" data-width="776" data-unresolved-comment-count="0" data-linked-resource-id="1735065660" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250404-175005.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1733230616" data-linked-resource-container-version="8" data-media-id="896d5d59-340d-40e1-a219-06256b0897ab" data-media-type="file"></span><ul><li><p>main page of DTA(Python course)</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250403-185817.png" width="400" loading="lazy" src="attachments/1733230616/1733132334.png?width=400" data-image-src="attachments/1733230616/1733132334.png" data-height="723" data-width="772" data-unresolved-comment-count="0" data-linked-resource-id="1733132334" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250403-185817.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1733230616" data-linked-resource-container-version="8" data-media-id="bf55c395-5c56-46aa-8446-4d5cf902297a" data-media-type="file"></span><ul><li><p>If correct, returns a success message and proceeds to the next question.</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250403-190130.png" width="400" loading="lazy" src="attachments/1733230616/1733263397.png?width=400" data-image-src="attachments/1733230616/1733263397.png" data-height="829" data-width="769" data-unresolved-comment-count="0" data-linked-resource-id="1733263397" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250403-190130.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1733230616" data-linked-resource-container-version="8" data-media-id="288ca230-5734-4424-9709-ba123737da42" data-media-type="file"></span><ul><li><p>If <strong>incorrect</strong>, generates a hint using <code>prompt_hint()</code> and returns it</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250403-190337.png" width="400" loading="lazy" src="attachments/1733230616/1732771862.png?width=400" data-image-src="attachments/1733230616/1732771862.png" data-height="824" data-width="773" data-unresolved-comment-count="0" data-linked-resource-id="1732771862" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250403-190337.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1733230616" data-linked-resource-container-version="8" data-media-id="9bf14d19-68ae-4fb4-8c38-4daa8ec52b5b" data-media-type="file"></span><ul><li><p>Completion</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250403-190509.png" width="400" loading="lazy" src="attachments/1733230616/1733263403.png?width=400" data-image-src="attachments/1733230616/1733263403.png" data-height="827" data-width="770" data-unresolved-comment-count="0" data-linked-resource-id="1733263403" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250403-190509.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1733230616" data-linked-resource-container-version="8" data-media-id="1a3d4e7e-1bcd-45f8-b2a0-e5445f57d547" data-media-type="file"></span><ul><li><p>The input box dynamically changes based on the question type</p></li></ul><p>   - Input box for default questions</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250404-141542.png" width="760" loading="lazy" src="attachments/1733230616/1734737929.png?width=760" data-image-src="attachments/1733230616/1734737929.png" data-height="141" data-width="1123" data-unresolved-comment-count="0" data-linked-resource-id="1734737929" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250404-141542.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1733230616" data-linked-resource-container-version="8" data-media-id="4d52bd87-929e-4ee3-9206-9236f1a022a9" data-media-type="file"></span><p>   - Input box for code-related questions</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="image-20250404-141412.png" width="760" loading="lazy" src="attachments/1733230616/1734475812.png?width=760" data-image-src="attachments/1733230616/1734475812.png" data-height="234" data-width="1113" data-unresolved-comment-count="0" data-linked-resource-id="1734475812" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20250404-141412.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1733230616" data-linked-resource-container-version="8" data-media-id="dca16f7b-b652-4d73-be68-209f44004ae3" data-media-type="file"></span><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1733230616/1733394446.png">image-20250403-181442.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1733230616/1732771854.png">image-20250403-185754.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1733230616/1733132334.png">image-20250403-185817.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1733230616/1733492747.png">image-20250403-185942.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1733230616/1733263397.png">image-20250403-190130.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1733230616/1732771862.png">image-20250403-190337.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1733230616/1733263403.png">image-20250403-190509.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1733230616/1734475812.png">image-20250404-141412.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1733230616/1734606871.png">image-20250404-141448.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1733230616/1734737929.png">image-20250404-141542.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1733230616/1735065654.png">image-20250404-174907.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1733230616/1735065660.png">image-20250404-175005.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:27</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

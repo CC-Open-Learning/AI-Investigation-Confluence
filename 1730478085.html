@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Investigation : Research: LLMs&#39; Access to Dynamic Calendars like D2L</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AI-Investigation_934674757.html">AI Investigation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="W25-INDEX_1551106050.html">W25-INDEX</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tech-Research_1583087617.html">Tech Research</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AI Investigation : Research: LLMs&#39; Access to Dynamic Calendars like D2L
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                            
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Eunie</span> on Apr 03, 2025
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="Research:LLMs&#39;AccesstoDynamicCalendarslikeD2L-LLMs+WebIntegrationApproaches"><strong>LLMs + Web Integration Approaches</strong></h2><p>LLMs cannot scrape websites like traditional crawlers but can access web content through the following methods:</p><ol start="1"><li><p>Function Calling + Backend Scraping</p></li></ol><ul><li><p>Examples: OpenAI Function Calling, LangChain Tools</p></li></ul><ul><li><p>Description: The LLM generates a function call, which is executed in the backend using tools like <strong>requests</strong> and <strong>BeautifulSoup</strong>.</p></li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;function&quot;: &quot;scrape_schedule&quot;,
+  &quot;arguments&quot;: {
+    &quot;url&quot;: &quot;https://example.com/schedule&quot;
+  }
+}</pre>
+</div></div><ol start="2"><li><p>RPA Integration (Browser Automation)</p></li></ol><ul><li><p>Tools: AutoGPT, AgentGPT, LangGraph, Open Interpreter</p></li></ul><ul><li><p>Description: Automates browser actions such as logging in, clicking, typing, opening a calendar, taking screenshots, or extracting text.</p></li></ul><ol start="3"><li><p>Browser Tool / Web Browsing Plugin</p></li></ol><ul><li><p>Examples: ChatGPT-4 with Browsing, Bing Copilot</p></li></ul><ul><li><p>Capabilities: Searches the web, visits websites, summarizes visible text content</p></li></ul><ul><li><p>Limitations: Cannot extract deeply embedded or JavaScript-rendered data</p></li></ul><h2 id="Research:LLMs&#39;AccesstoDynamicCalendarslikeD2L-Summary:WhatLLMsCanandCannotDo"><strong>Summary: What LLMs Can and Cannot Do</strong></h2><div class="table-wrap"><table data-layout="default" data-local-id="ba6cf396-92b0-4301-a0e7-a2ffdd4bae0a" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Function</strong></p></th><th class="confluenceTh"><p><strong>Open-source LLMs (e.g., Mistral)</strong></p></th></tr><tr><td class="confluenceTd"><p>Web search</p></td><td class="confluenceTd"><p>No</p></td></tr><tr><td class="confluenceTd"><p>Read JavaScript-rendered content</p></td><td class="confluenceTd"><p>No</p></td></tr><tr><td class="confluenceTd"><p>Parse static HTML</p></td><td class="confluenceTd"><p>With external tools</p></td></tr><tr><td class="confluenceTd"><p>Simulate browser interaction</p></td><td class="confluenceTd"><p>No (Requires RPA integration)</p></td></tr></tbody></table></div><h2 id="Research:LLMs&#39;AccesstoDynamicCalendarslikeD2L-TheNatureofD2LCalendars"><strong>The Nature of D2L Calendars</strong></h2><p>Calendars on D2L (Desire2Learn) are dynamic web pages. The calendar data is loaded asynchronously using JavaScript, meaning:</p><ul><li><p>The raw HTML does not contain the actual schedule.</p></li></ul><ul><li><p>Content is rendered on the client side after page load.</p></li></ul><p><strong>Scraping: Static vs. Dynamic Web Pages</strong></p><div class="table-wrap"><table data-layout="default" data-local-id="495a7acb-ab9a-4c56-bb16-78781e68acbf" class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Feature</strong></p></th><th class="confluenceTh"><p><strong>Static Page</strong></p></th><th class="confluenceTh"><p><strong>Dynamic Page</strong></p></th></tr><tr><td class="confluenceTd"><p>Content loading</p></td><td class="confluenceTd"><p>Embedded in HTML</p></td><td class="confluenceTd"><p>Loaded via JavaScript</p></td></tr><tr><td class="confluenceTd"><p>Example pages</p></td><td class="confluenceTd"><p>News, blogs, public schedules</p></td><td class="confluenceTd"><p>Google Calendar, D2L, React apps</p></td></tr><tr><td class="confluenceTd"><p>Web scraping with BeautifulSoup</p></td><td class="confluenceTd"><p>Easy</p></td><td class="confluenceTd"><p>Not feasible</p></td></tr><tr><td class="confluenceTd"><p>Data update behavior</p></td><td class="confluenceTd"><p>Requires full page reload</p></td><td class="confluenceTd"><p>Real-time or asynchronous updates</p></td></tr></tbody></table></div><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="760" loading="lazy" src="attachments/1730478085/1731264521.png?width=760" data-image-src="attachments/1730478085/1731264521.png" data-height="694" data-width="1716" data-unresolved-comment-count="0" data-linked-resource-id="1731264521" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot 2025-04-02 at 8.27.33 PM.png" data-base-url="https://varlab-dev.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1730478085" data-linked-resource-container-version="1" data-media-id="54f0f24b-f26a-4832-b2cf-d2ccb92b8c0d" data-media-type="file"></span><p /><h2 id="Research:LLMs&#39;AccesstoDynamicCalendarslikeD2L-SolutionsforDynamicContent(e.g.,D2LCalendars)"><strong>Solutions for Dynamic Content (e.g., D2L Calendars)</strong></h2><ol start="1"><li><p>Use Selenium or Playwright</p></li></ol><p>Automates a browser to load JavaScript-rendered content and extract the final HTML.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">from selenium import webdriver
+
+driver = webdriver.Chrome()
+driver.get(&quot;https://conestoga.desire2learn.com/d2l/le/calendar/1343106&quot;)
+html = driver.page_source</pre>
+</div></div><p /><ol start="2"><li><p>Check for a Public API</p></li></ol><p>If D2L offers a REST API, it’s the most reliable and stable method to retrieve calendar data.</p><ol start="3"><li><p>Manual Copy &amp; Paste</p></li></ol><p>As a fallback, copy content manually from the browser and provide it to the LLM for summarization.</p><p>Conclusion</p><p /><p>For platforms like D2L, where content is rendered dynamically using JavaScript, basic HTML scraping is not sufficient.</p><p>You need either browser automation tools or access to an official API to extract the data effectively.</p><h2 id="Research:LLMs&#39;AccesstoDynamicCalendarslikeD2L-References">References</h2><ul><li><p><a class="external-link" href="https://platform.openai.com/docs/guides/function-calling" rel="nofollow">OpenAI Function Calling Guide</a></p></li></ul><ul><li><p><a class="external-link" href="https://www.microsoft.com/en-us/bing/apis/pricing" rel="nofollow">Microsoft Bing APIs Pricing</a></p></li></ul>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1730478085/1731461132.png">Screenshot 2025-04-02 at 8.27.33 PM.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1730478085/1731264521.png">Screenshot 2025-04-02 at 8.27.33 PM.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2025 14:27</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
